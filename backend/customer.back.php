@@ -1,6 +1,4 @@
 <?php
-include '../backend/account.back.php';
-
 class Customer extends Account
 {
     protected $name;
@@ -100,3 +98,4 @@ class Customer extends Account
         
     }
 }
+?>

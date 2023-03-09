@@ -1,14 +1,16 @@
 <?php
 include '../includes/navbar.php';
+include '../backend/connection.back.php';
+include '../backend/account.back.php';
 include '../backend/customer.back.php';
+$custId = $_SESSION["custUid"];
 ?>
 
 <div class="col d-flex justify-content-center">
     <div class="card mb-3" style="width: 700px; margin-top:20px">
         <div class="card-body">
-            <h5 class="card-title">Welcome back,
+            <h5 class="card-title">Welcome back, 
                 <?php
-                $custId = $_SESSION["custUid"];
                 $cust = new Customer();
                 echo $cust->showName($custId);
                 ?>

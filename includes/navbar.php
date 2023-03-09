@@ -42,6 +42,7 @@ if (session_status() == PHP_SESSION_ACTIVE && empty($_SESSION["accountType"])) {
       <div class="navbar-nav">
         <a class="nav-item nav-link" href="../index/index.php">Home</a>
         <a class="nav-item nav-link" href="../frontend/booking.front.php">My bookings</a>
+        <a class="nav-item nav-link" href="../frontend/profile.front.php">Profile</a>
         <a class="nav-item nav-link" href="../includes/logout.inc.php">Logout</a>
       </div>
     </div>
