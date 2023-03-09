@@ -1,3 +1,13 @@
+--
+-- Database: `travelhive`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer`
+--
+
 CREATE TABLE `customer` (
   `custUid` int(11) NOT NULL,
   `custName` varchar(255) NOT NULL,
