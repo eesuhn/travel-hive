@@ -32,7 +32,7 @@
   <?php
   }
 
-  if (session_status() == PHP_SESSION_ACTIVE && ($_SESSION["accountType"]==="customer")){
+  else if (session_status() == PHP_SESSION_ACTIVE && ($_SESSION["accountType"]==="customer")){
   ?>
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light px-2">
     <a class="navbar-brand" href="#">
@@ -51,7 +51,7 @@
   <?php
   
   }
-  if (session_status() == PHP_SESSION_ACTIVE && ($_SESSION["accountType"]==="hotel")){
+  else if (session_status() == PHP_SESSION_ACTIVE && ($_SESSION["accountType"]==="hotel")){
 
   ?>
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light px-2">
