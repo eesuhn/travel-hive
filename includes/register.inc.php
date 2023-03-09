@@ -1,22 +1,24 @@
 <?php
 
+//instantiate what is needed
+include "../backend/connection.back.php";
+include "../backend/account.back.php";
+include "../backend/hotel.back.php";
+include "../backend/customer.back.php";
+
 if (isset($_POST["submitU"])){
 
-    //Grabbing data
+    //grabbing data
     $name = $_POST["name"];
     $email = $_POST["email"];
     $pwd = $_POST["pwd"];
     $age = (int)$_POST["age"];
     $origin = $_POST["origin"];
 
-
-    //Instantiate what is needed
-    include "../backend/connection.back.php";
-    include "../backend/register.back.php";
-
-    $registerU = new RegisterU();
-    $registerU->setRegisterDetails($name,$email,$pwd,$age,$origin);
-    $registerU->registerUser();
+    //constructor methods and required functions
+    $customer = new Customer();
+    $customer->setRegisterDetails($name,$email,$pwd,$age,$origin);
+    $customer->registerUser();
 
     
 
@@ -50,13 +52,10 @@ if (isset($_POST["submitH"])){
     $hAdd = $_POST["hAdd"];
     $hDesc = $_POST["hDesc"];
     $imgPath = $dest_path;
-
-    //Instantiate what is needed
-    include "../backend/connection.back.php";
-    include "../backend/register.back.php";
     
-    $registerH = new RegisterH();
-    $registerH->setHotelDetails($hName,$hEmail,$hPwd,$hAdd,$hDesc,$imgPath);
-    $registerH->registerHotel();
+    //constructor methods and required functions
+    $hotel = new Hotel();
+    $hotel->setHotelDetails($hName,$hEmail,$hPwd,$hAdd,$hDesc,$imgPath);
+    $hotel->registerHotel();
 
 }

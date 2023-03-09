@@ -47,7 +47,7 @@
           </div>
           <div class="input-group mb-3 py-3">
           <label class="input-group-text" for="fileUpload">Upload an image of your hotel</label>
-          <input type="file" name="fileUpload" id="fileUpload">
+          <input type="file" name="fileUpload" id="fileUpload"  class="form-control">
           </div>
           <button type="submit" name="submitH" class="btn btn-primary">Register</button>
         </form>

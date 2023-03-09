@@ -1,7 +1,6 @@
 <?php
 
-class Login extends Database{
-
+class Account extends Database{
     protected $email;
     protected $pwd;
 
@@ -28,7 +27,6 @@ class Login extends Database{
             echo "<script>alert('No account found'); window.location.href='../frontend/check.php'</script>";
         }
     }
-
     public function loginHotel(){
         $sql = "SELECT * FROM `hotel` WHERE `hotelEmail` = :email AND `hotelPwd` = :pwd";
         $stmt = $this->connect()->prepare($sql);
@@ -44,9 +42,6 @@ class Login extends Database{
             echo "<script>alert('No account found window.location.href='../frontend/check.php'</script>";
         }
     }
-    
+
+
 }
-
-
-?>
-

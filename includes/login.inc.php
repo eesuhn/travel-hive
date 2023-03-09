@@ -8,10 +8,10 @@ if (isset($_POST["submit"])){
 
     //Instantiate what is needed
     include "../backend/connection.back.php";
-    include "../backend/login.back.php";
+    include "../backend/account.back.php";
 
     //Function to check user
-    $login = new Login();
+    $login = new Account();
     $login->setLoginDetails($email,$pwd);
 
     if ($_POST["accType"]==="customer"){
@@ -19,4 +19,5 @@ if (isset($_POST["submit"])){
     }else{
     $login->loginHotel();
     }
+
 }
