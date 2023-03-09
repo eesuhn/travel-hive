@@ -22,7 +22,7 @@ class Customer extends Account{
     }
 
     //inserting details into database
-    public function registerUser(){
+    public function registerCustomer(){
         $sql = "INSERT INTO customer (custName, custEmail, custPwd, custAge, custPlace) VALUES (:value1, :value2, :value3, :value4, :value5)";
 
         $stmt = $this->connect()->prepare($sql);

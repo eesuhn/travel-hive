@@ -47,7 +47,7 @@
               <label class="form-label" for="pwd" name="pwd">Password</label>
             </div>
             <div id="formHelp" class="form-text">Don't have an account?</div>
-            <a href="../frontend/registerU.front.php" style="padding: 7px; margin-bottom: 7px;">
+            <a href="../frontend/registerC.front.php" style="padding: 7px; margin-bottom: 7px;">
                 Register as User
             </a>
             <a href="../frontend/registerH.front.php" style="padding: 7px; margin-bottom: 7px;">
