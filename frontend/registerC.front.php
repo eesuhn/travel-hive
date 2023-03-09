@@ -40,7 +40,7 @@
           </div>
           <div class="mb-3">
             <label for="age">Age</label>
-            <input type="number" class="form-control" id="age">
+            <input type="number" class="form-control" id="age" name="age">
           </div>
           <div class="mb-3">
             <label for="placeOrigin">Place of Origin</label>
