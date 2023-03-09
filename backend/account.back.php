@@ -1,5 +1,4 @@
 <?php
-
 class Account extends Database{
     protected $email;
     protected $pwd;
@@ -21,7 +20,6 @@ class Account extends Database{
             session_start();
             $_SESSION["accountType"] = "customer";
             $_SESSION["custUid"] = $row["custUid"];
-            $_SESSION["custName"] = $row["custName"];
             echo "<script>alert('You are now logged in'); window.location.href='../index/index.php'</script>";
         }else{
             echo "<script>alert('No account found'); window.location.href='../frontend/check.php'</script>";
@@ -42,6 +40,5 @@ class Account extends Database{
             echo "<script>alert('No account found window.location.href='../frontend/check.php'</script>";
         }
     }
-
-
 }
+?>
