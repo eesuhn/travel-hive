@@ -20,7 +20,7 @@
 
       <div class="row d-flex justify-content-center">
         <div class="col-lg-8">
-          <h2 class="fw-bold mb-5">Sign in to your account</h2>
+          <h2 class="fw-bold mb-5">Create an account</h2>
           <form id="register_user" method="POST" action="../includes/register.inc.php">
           <div class="form-row">
           <div class="mb-3">

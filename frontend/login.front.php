@@ -25,19 +25,13 @@
           
           <form id="login" method="POST" action="../includes/login.inc.php">
             <div class="row">
-            <div class="form-check px-5 py-2">
-              <input class="form-check-input" type="radio" name="accType" value="customer" checked>
-              <label class="form-check-label">
-              Customer
-              </label>
-            </div>
-            <div class="form-check px-5 py-3">
-              <input class="form-check-input" type="radio" name="accType" value="hotel">
-              <label class="form-check-label">
-              Hotel
-              </label>
-          </div>
-            <div class="form-outline mb-4">
+            <select class="form-select" aria-label="form-select" name="accType">
+            <option selected>Select Login Type</option>
+            <option value="customer">Customer</option>
+            <option value="hotel">Hotel</option>
+            </select>
+
+            <div class="form-outline mb-4 py-5">
               <input type="email" name="email" id="email" class="form-control" />
               <label class="form-label" for="email" name="email">Email address</label>
             </div>
