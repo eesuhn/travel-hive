@@ -51,7 +51,7 @@ $custId = $_SESSION["custUid"];
       <div class="modal-body">
       <div class="row d-flex justify-content-center">
         <div class="col-lg-8">
-          <form id="updateProfile" method="POST" action="../includes/profile.inc.php">
+          <form id="updateProfile" method="POST" action="../includes/profileC.inc.php">
           <div class="form-row">
           <div class="mb-3">
               <label for="text">Name</label>
