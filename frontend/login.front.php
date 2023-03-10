@@ -41,12 +41,18 @@
               <label class="form-label" for="pwd" name="pwd">Password</label>
             </div>
             <div id="formHelp" class="form-text">Don't have an account?</div>
-            <a href="../frontend/registerC.front.php" style="padding: 7px; margin-bottom: 7px;">
-                Register as User
-            </a>
-            <a href="../frontend/registerH.front.php" style="padding: 7px; margin-bottom: 7px;">
-                Register as Hotel Organization
-            </a>
+            <div class = "row d-flex justify-content-center">
+              <div class = "col-2">
+                <a href="../frontend/registerC.front.php" style="padding: 7px; margin-bottom: 7px;">
+                    Register as User
+                </a>
+              </div>
+              <div class = "col-2">
+                <a href="../frontend/registerH.front.php" style="padding: 7px; margin-bottom: 7px;">
+                    Register as Hotel
+                </a>
+            </div>
+            </div>
             <button type="submit" name="submit" class="btn btn-primary">Login</button>
           </form>
         </div>
