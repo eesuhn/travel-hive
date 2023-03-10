@@ -19,7 +19,7 @@
 
       <div class="row d-flex justify-content-center">
         <div class="col-lg-8">
-          <h2 class="fw-bold mb-5">Register an account</h2>
+          <h2 class="fw-bold mb-5">Create an account</h2>
           <form id="register_hotel" method="POST" action="../includes/register.inc.php" enctype="multipart/form-data">
           <div class="form-row">
           <div class="mb-3">

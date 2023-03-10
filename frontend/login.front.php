@@ -25,19 +25,13 @@
           
           <form id="login" method="POST" action="../includes/login.inc.php">
             <div class="row">
-            <div class="form-check px-5 py-2">
-              <input class="form-check-input" type="radio" name="accType" value="customer" checked>
-              <label class="form-check-label">
-              Customer
-              </label>
-            </div>
-            <div class="form-check px-5 py-3">
-              <input class="form-check-input" type="radio" name="accType" value="hotel">
-              <label class="form-check-label">
-              Hotel
-              </label>
-          </div>
-            <div class="form-outline mb-4">
+            <select class="form-select" aria-label="form-select" name="accType">
+            <option selected>Select Login Type</option>
+            <option value="customer">Customer</option>
+            <option value="hotel">Hotel</option>
+            </select>
+
+            <div class="form-outline mb-4 py-5">
               <input type="email" name="email" id="email" class="form-control" />
               <label class="form-label" for="email" name="email">Email address</label>
             </div>
@@ -47,12 +41,18 @@
               <label class="form-label" for="pwd" name="pwd">Password</label>
             </div>
             <div id="formHelp" class="form-text">Don't have an account?</div>
-            <a href="../frontend/registerC.front.php" style="padding: 7px; margin-bottom: 7px;">
-                Register as User
-            </a>
-            <a href="../frontend/registerH.front.php" style="padding: 7px; margin-bottom: 7px;">
-                Register as Hotel Organization
-            </a>
+            <div class = "row d-flex justify-content-center">
+              <div class = "col-2">
+                <a href="../frontend/registerC.front.php" style="padding: 7px; margin-bottom: 7px;">
+                    Register as User
+                </a>
+              </div>
+              <div class = "col-2">
+                <a href="../frontend/registerH.front.php" style="padding: 7px; margin-bottom: 7px;">
+                    Register as Hotel
+                </a>
+            </div>
+            </div>
             <button type="submit" name="submit" class="btn btn-primary">Login</button>
           </form>
         </div>
