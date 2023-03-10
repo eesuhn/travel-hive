@@ -81,7 +81,7 @@ class Customer extends Account
             return $row["custAge"];
         }
     }
-    public function showPlace($uid)
+    public function showOrigin($uid)
     {
         $sql = "SELECT * FROM customer where custUid = '$uid';";
         $stmt = $this->connect()->prepare($sql);
@@ -95,7 +95,21 @@ class Customer extends Account
         $sql = "UPDATE customer SET custName = '$newName' WHERE custUid='$uid';";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute();
-        
+    }
+    public function changeEmail($uid, $newEmail){
+        $sql = "UPDATE customer SET custEmail = '$newEmail' WHERE custUid='$uid';";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+    }
+    public function changeAge($uid, $newAge){
+        $sql = "UPDATE customer SET custAge = '$newAge' WHERE custUid='$uid';";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+    }
+    public function changeOrigin($uid, $newOrigin){
+        $sql = "UPDATE customer SET custPlace = '$newOrigin' WHERE custUid='$uid';";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
     }
 }
 ?>
