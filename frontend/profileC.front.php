@@ -25,7 +25,7 @@ $custId = $_SESSION["custUid"];
                     Age: <?=$cust->showAge($custId);?>
                 </small></p>
             <p class="card-text"><small class="text-muted">
-                    Place of origin: <?=$cust->showPlace($custId);?>
+                    Place of origin: <?=$cust->showOrigin($custId);?>
                 </small></p>
         </div>
     </div>
@@ -68,7 +68,7 @@ $custId = $_SESSION["custUid"];
           </div>
           <div class="mb-3">
             <label for="placeOrigin">Place of Origin</label>
-            <input type="placeOrigin" class="form-control" id="origin" name="origin" value="<?=$cust->showPlace($custId)?>">
+            <input type="placeOrigin" class="form-control" id="origin" name="origin" value="<?=$cust->showOrigin($custId)?>">
           </div>
         </div>
       </div>
