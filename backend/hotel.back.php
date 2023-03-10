@@ -9,6 +9,7 @@ class Hotel extends Account{
     protected $hDesc;
     protected $imgPath;
 
+    // constructor method
     public function __construct(){
         $this->hName="";
         parent::__construct();
@@ -54,4 +55,94 @@ class Hotel extends Account{
             echo "Error: " . $error[2];
         }        
     }
+
+    // display hotel name based on user id
+    public function showName($uid){
+        $sql = "SELECT * FROM hotel where hotelUid = '$uid';";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            echo $row['hotelName'];
+        }
+    }
+
+    // display hotel email based on user id
+    public function showEmail($uid){
+        $sql = "SELECT * FROM hotel where hotelUid = '$uid';";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            echo $row['hotelEmail'];
+        }
+    }
+
+    // display hotel address based on user id
+    public function showAdd($uid){
+        $sql = "SELECT * FROM hotel where hotelUid = '$uid';";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            echo $row['hotelAdd'];
+        }
+    }
+
+    // display hotel description based on user id
+    public function showDesc($uid){
+        $sql = "SELECT * FROM hotel where hotelUid = '$uid';";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            echo $row['hotelDesc'];
+        }
+    }
+
+    // display hotel image based on user id
+    public function showImage($uid){
+        $sql = "SELECT * FROM hotel where hotelUid = '$uid';";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            echo $row['hotelImage'];
+        }
+    }
+
+    // update hotel name based on user id
+    public function changeName($uid, $newName){
+        $sql = "UPDATE hotel SET hotelName = '$newName' WHERE hotelUid = '$uid';";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+    }
+
+    // update hotel email based on user id
+    public function changeEmail($uid, $newEmail){
+        $sql = "UPDATE hotel SET hotelEmail = '$newEmail' WHERE hotelUid = '$uid';";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+    }
+
+    // update hotel address based on user id
+    public function changeAdd($uid, $newAdd){
+        $sql = "UPDATE hotel SET hotelAdd = '$newAdd' WHERE hotelUid = '$uid';";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+    }
+
+    // update hotel description based on user id
+    public function changeDesc($uid, $newDesc){
+        $sql = "UPDATE hotel SET hotelDesc = '$newDesc' WHERE hotelUid = '$uid';";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+    }
+
+    /*
+    Based on user ID: 
+        1. Upload and update hotelImage in uploads folder
+        2. Upload and update hotelImage path in database
+        3. Delete old hotelImage from uploads folder
+    */
 }
