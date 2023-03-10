@@ -3,6 +3,7 @@
 
 <?php
     include '../includes/navbar.php';  
+    include '../includes/registerform.inc.php'
 ?>
 
 <body>
@@ -31,28 +32,18 @@
             <option value="hotel">Hotel</option>
             </select>
 
-            <div class="form-outline mb-4 py-5">
+            <div class="form-outline mb-2 py-5">
               <input type="email" name="email" id="email" class="form-control" />
               <label class="form-label" for="email" name="email">Email address</label>
             </div>
 
-            <div class="form-outline mb-4">
+            <div class="form-outline mb-2">
               <input type="password" name="pwd" id="pwd" class="form-control"/>
               <label class="form-label" for="pwd" name="pwd">Password</label>
             </div>
-            <div id="formHelp" class="form-text">Don't have an account?</div>
-            <div class = "row d-flex justify-content-center">
-              <div class = "col-2">
-                <a href="../frontend/registerC.front.php" style="padding: 7px; margin-bottom: 7px;">
-                    Register as User
-                </a>
-              </div>
-              <div class = "col-2">
-                <a href="../frontend/registerH.front.php" style="padding: 7px; margin-bottom: 7px;">
-                    Register as Hotel
-                </a>
-            </div>
-            </div>
+
+            <a href="#register" data-bs-target="#register" data-bs-toggle="modal" style="text-decoration:none; margin:5px;">Don't have an account?</a>
+            
             <button type="submit" name="submit" class="btn btn-primary">Login</button>
           </form>
         </div>
