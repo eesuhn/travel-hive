@@ -16,9 +16,9 @@
 
       <div class="row d-flex justify-content-center">
         <div class="col-lg-8">
-          <h2 class="fw-bold mb-5">Add a new Package</h2>
+          <h2 class="fw-bold mb-5">Edit Package</h2>
           
-        <form id="addPackages" method="$_POST" action="#">
+        <form id="editPackages" method="$_POST" action="#">
 
             <div class="form-group row py-5">
                 <label for="packName" class="col-sm-3 col-form-label">Name</label>
