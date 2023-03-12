@@ -139,10 +139,10 @@ class Hotel extends Account{
         $stmt->execute();
     }
 
-    /*
-    Based on user ID: 
-        1. Upload and update hotelImage in uploads folder
-        2. Upload and update hotelImage path in database
-        3. Delete old hotelImage from uploads folder
-    */
+    // update hotel image based on user id
+    public function changeImage($uid, $newImage){
+        $sql = "UPDATE hotel SET hotelImage = '$newImage' WHERE hotelUid = '$uid';";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+    }
 }

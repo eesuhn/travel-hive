@@ -1,8 +1,6 @@
 <?php
     include '../includes/navbar.php';
-    include '../backend/connection.back.php';
-    include '../backend/account.back.php';
-    include '../backend/hotel.back.php';
+    include '../includes/profileH.inc.php';
     $hotelUid = $_SESSION["hotelUid"];
 ?>
 
@@ -15,6 +13,13 @@
                 echo $hotel->showName($hotelUid);
                 ?>
             </h5>
+
+            <center>
+                <div class="card mb-3" style="width: 500px; margin-top:10px">
+                    <img class="card-img-top" src="<?=$hotel->showImage($hotelUid);?>" alt="Card image cap"/>
+                </div>
+            </center>
+            
             <p class="card-text"><small class="text-muted">
                     Name: <?=$hotel->showName($hotelUid);?>
                 </small></p>
@@ -62,12 +67,16 @@
                                 <input type="email" class="form-control" id="email" name="email" value="<?=$hotel->showEmail($hotelUid);?>">
                             </div>
                             <div class="mb-3">
-                                <label for="age">Address</label>
-                                <input type="number" class="form-control" id="address" name="address" value="<?=$hotel->showAdd($hotelUid);?>">
+                                <label for="address">Address</label>
+                                <input type="text" class="form-control" id="address" name="address" value="<?=$hotel->showAdd($hotelUid);?>">
                             </div>
                             <div class="mb-3">
-                                <label for="placeOrigin">Description</label>
-                                <input type="placeOrigin" class="form-control" id="description" name="description" value="<?=$hotel->showDesc($hotelUid);?>">
+                                <label for="description">Description</label>
+                                <input type="text" class="form-control" id="description" name="description" value="<?=$hotel->showDesc($hotelUid);?>">
+                            </div>
+                            <div class="mb-3">
+                                <label class="input-group-text" for="fileUpload">Upload image</label>
+                                <input type="file" name="fileUpload" id="fileUpload" class="form-control">
                             </div>
                         </div>
                     </div>
