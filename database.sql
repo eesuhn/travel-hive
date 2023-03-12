@@ -17,13 +17,6 @@ CREATE TABLE `customer` (
   `custPlace` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `customer`
---
-
-INSERT INTO `customer` (`custUid`, `custName`, `custEmail`, `custPwd`, `custAge`, `custPlace`) VALUES
-(9, '123', 'baby@123.com', '123', '0', 'Malaysia');
-
 -- --------------------------------------------------------
 
 --
@@ -40,13 +33,6 @@ CREATE TABLE `hotel` (
   `hotelImage` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `hotel`
---
-
-INSERT INTO `hotel` (`hotelUid`, `hotelName`, `hotelEmail`, `hotelPwd`, `hotelAdd`, `hotelDesc`, `hotelImage`) VALUES
-(2, '123', '123@gmail.com', '123', '123', '123123123', '../uploads/0547536d57505cc0528ad4aba8706ce3.jpg');
-
 -- --------------------------------------------------------
 
 --
@@ -61,10 +47,6 @@ CREATE TABLE `packages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Indexes for dumped tables
---
-
---
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
@@ -75,10 +57,6 @@ ALTER TABLE `customer`
 --
 ALTER TABLE `hotel`
   ADD PRIMARY KEY (`hotelUid`);
-
---
--- AUTO_INCREMENT for dumped tables
---
 
 --
 -- AUTO_INCREMENT for table `customer`
