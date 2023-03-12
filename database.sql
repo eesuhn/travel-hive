@@ -91,3 +91,9 @@ ALTER TABLE `customer`
 --
 ALTER TABLE `hotel`
   MODIFY `hotelUid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+-- 
+-- Add packageImage for table 'packages'
+-- 
+ALTER TABLE `packages` 
+  ADD `packageImage` VARCHAR(255) NOT NULL AFTER `packageDesc`;
