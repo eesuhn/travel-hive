@@ -3,7 +3,6 @@
   include '../includes/profileH.inc.php';
   $hotelUid = $_SESSION["hotelUid"];
   $hotel = new Hotel();
-  echo $hotel->showName($hotelUid);
 ?>
 
 <center>

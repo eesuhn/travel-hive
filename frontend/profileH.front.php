@@ -67,12 +67,12 @@
                                 <input type="email" class="form-control" id="email" name="email" value="<?=$hotel->showEmail($hotelUid);?>">
                             </div>
                             <div class="mb-3">
-                                <label for="age">Address</label>
-                                <input type="number" class="form-control" id="address" name="address" value="<?=$hotel->showAdd($hotelUid);?>">
+                                <label for="address">Address</label>
+                                <input type="text" class="form-control" id="address" name="address" value="<?=$hotel->showAdd($hotelUid);?>">
                             </div>
                             <div class="mb-3">
-                                <label for="placeOrigin">Description</label>
-                                <input type="placeOrigin" class="form-control" id="description" name="description" value="<?=$hotel->showDesc($hotelUid);?>">
+                                <label for="description">Description</label>
+                                <input type="text" class="form-control" id="description" name="description" value="<?=$hotel->showDesc($hotelUid);?>">
                             </div>
                             <div class="mb-3">
                                 <label class="input-group-text" for="fileUpload">Upload image</label>

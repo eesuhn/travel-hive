@@ -6,7 +6,14 @@
     if (isset($_POST["submit"])){
 
 
-        if (isset($_FILES['fileUpload']) && $_FILES['fileUpload']['error'] === UPLOAD_ERR_OK){
+        if (isset($_FILES['fileUpload']) && $_FILES['fileUpload']['error'] === UPLOAD_ERR_OK) {
+
+            // remove and unlink old image if exists
+            $oldImg = $hotel->showImage($hotelUid);
+            if (!empty($oldImg)) {
+                unlink("$oldImg");
+            }
+
             // get details of the uploaded file
             $fileTmpPath = $_FILES['fileUpload']['tmp_name'];
             $fileName = $_FILES['fileUpload']['name'];
@@ -15,8 +22,9 @@
             $fileNameCmps = explode(".", $fileName);
             $fileExtension = strtolower(end($fileNameCmps));
             $allowedfileExtensions = array('jpg', 'gif', 'png', 'jpeg');
+
             //check if file is inside the array of supported files
-            if (in_array($fileExtension, $allowedfileExtensions)){
+            if (in_array($fileExtension, $allowedfileExtensions)) {
                 //sanitize file-name
                 $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
                 $uploadFileDir = "../uploads/";
