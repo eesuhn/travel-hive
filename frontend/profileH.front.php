@@ -56,7 +56,7 @@
             <div class="modal-body">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-8">
-                        <form id="updateProfile" method="POST" action="../includes/profileH.inc.php">
+                    <form id="update_hotel" method="POST" action="../includes/profileH.inc.php" enctype="multipart/form-data">
                         <div class="form-row">
                             <div class="mb-3">
                                 <label for="name">Name</label>
@@ -78,13 +78,11 @@
                                 <label class="input-group-text" for="fileUpload">Upload image</label>
                                 <input type="file" name="fileUpload" id="fileUpload" class="form-control">
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button class="btn btn-primary" name="submit" id="submit">Save changes</button>
                         </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

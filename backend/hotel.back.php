@@ -107,7 +107,9 @@ class Hotel extends Account{
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            echo $row['hotelImage'];
+            return $row['hotelImage'];
+        }else{
+            return "Error, no image in db";
         }
     }
 
