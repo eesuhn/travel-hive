@@ -71,7 +71,6 @@ if (session_status() == PHP_SESSION_ACTIVE && empty($_SESSION["accountType"])) {
             - maintain bookings
         -->
         <a class="nav-item nav-link" href="../frontend/dashboard_hotel.front.php">Dashboard</a>
-        <a class="nav-item nav-link" href="../frontend/profileH.front.php">Profile</a>
         <a class="nav-item nav-link" href="../includes/logout.inc.php">Logout</a>
       </div>
     </div>

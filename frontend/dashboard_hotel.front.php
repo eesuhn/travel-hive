@@ -1,5 +1,9 @@
 <?php
-  include '../includes/navbar.php'
+  include '../includes/navbar.php';
+  include '../includes/profileH.inc.php';
+  $hotelUid = $_SESSION["hotelUid"];
+  $hotel = new Hotel();
+  echo $hotel->showName($hotelUid);
 ?>
 
 <center>
@@ -8,11 +12,11 @@
 
 <div class="col d-flex justify-content-center">
     <div class="card mb-3" style="width: 700px; margin-top:20px">
-        <img class="card-img-top" src="../images/alilahotel.png" alt="Card image cap">
+        <img class="card-img-top" src="<?=$hotel->showImage($hotelUid);?>" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">Alila Hotel</h5>
+        <h5 class="card-title"><?=$hotel->showName($hotelUid);?></h5>
           <p class="card-text"><small class="text-muted">
-          58, Jalan Ang Seng, Brickfields, 50470 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur
+          <?=$hotel->showAdd($hotelUid);?>
           </small></p>
       </div>
     </div>
