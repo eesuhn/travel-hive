@@ -55,7 +55,7 @@
             </div>
             <div class="modal-body">
                 <div class="row d-flex justify-content-center">
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
                     <form id="update_hotel" method="POST" action="../includes/profileH.inc.php" enctype="multipart/form-data">
                         <div class="form-row">
                             <div class="mb-3">
