@@ -132,7 +132,7 @@
                 return $result['packageImage'];
             } else {
                 $error = $stmt->errorInfo();
-                echo "Error: " . $error[2];
+                return "Error: " . $error[2];
             }
         }
 
