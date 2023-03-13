@@ -50,6 +50,7 @@ class Hotel extends Account{
         $value6 = $this->imgPath;
 
         if ($stmt->execute(array(':value1' => $value1, ':value2' => $value2, ':value3' => $value3, ':value4' => $value4, ':value5' => $value5, ':value6' => $value6))) {
+            echo "<script>alert('Account successfully created'); window.location.href='../frontend/login.front.php'</script>";
         } else {
             $error = $stmt->errorInfo();
             echo "Error: " . $error[2];
