@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="description">Description</label>
-                                    <input type="text" class="form-control" id="description" name="description" value="<?=$packages->showDesc($id);?>">
+                                    <textarea class="form-control" id="description" name="description" rows="3" style="resize: none;"><?=$packages->showDesc($id);?></textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label class="input-group-text" for="fileUpload">Upload image</label>
