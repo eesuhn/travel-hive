@@ -75,3 +75,15 @@ ALTER TABLE `hotel`
 -- 
 ALTER TABLE `packages` 
   ADD `packageImage` VARCHAR(255) NOT NULL AFTER `packageDesc`;
+
+-- 
+-- Add hotelUid for table 'packages'
+-- 
+ALTER TABLE `packages` 
+  ADD `hotelUid` INT(11) NOT NULL AFTER `packageId`;
+
+-- 
+-- Set foreign key for table 'packages'
+-- 
+ALTER TABLE `packages`
+  ADD CONSTRAINT `hotelUid` FOREIGN KEY (`hotelUid`) REFERENCES `hotel` (`hotelUid`);

@@ -9,7 +9,7 @@
         Please select type of account to be created.
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#registerUser" data-bs-toggle="modal">User</button>
+        <button class="btn btn-primary" data-bs-target="#registerUser" data-bs-toggle="modal">Customer</button>
         <button class="btn btn-primary" data-bs-target="#registerHotel" data-bs-toggle="modal">Hotel</button>
     </div>
     </div>

@@ -14,6 +14,7 @@
     
     if (isset($_POST["submit"])){
         if (isset($_FILES['fileUpload']) && $_FILES['fileUpload']['error'] === UPLOAD_ERR_OK) {
+            // delete old image
             unlink("$oldImg");
 
             // get details of the uploaded file
