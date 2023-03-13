@@ -55,15 +55,17 @@
             }
         }
 
-        // get packageId from the same hotelUid, put it into an array and return it
-        public function getPackageIDSameHotelId ($hotelUid) {
+        // get all package id based on hotel id, put it in an array
+        public function getPackageID ($hotelUid) {
             $sql = "SELECT packageID FROM packages where hotelUid = '$hotelUid';";
-            
-            $stmt = $this->getConnection()->prepare($sql);
 
-            if ($stmt->execute()) {
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute();
+
+            if ($stmt->rowCount() > 0) {
                 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 return $result;
+
             } else {
                 $error = $stmt->errorInfo();
                 echo "Error: " . $error[2];
@@ -75,8 +77,9 @@
             $sql = "SELECT * FROM packages where packageID = '$packageID';";
             
             $stmt = $this->getConnection()->prepare($sql);
+            $stmt->execute();
 
-            if ($stmt->execute()) {
+            if ($stmt->rowCount() > 0) {
                 $result = $stmt->fetch(PDO::FETCH_ASSOC);
                 return $result['packageName'];
             } else {
@@ -90,8 +93,9 @@
             $sql = "SELECT * FROM packages where packageID = '$packageID';";
             
             $stmt = $this->getConnection()->prepare($sql);
+            $stmt->execute();
 
-            if ($stmt->execute()) {
+            if ($stmt->rowCount() > 0) {
                 $result = $stmt->fetch(PDO::FETCH_ASSOC);
                 return $result['packagePrice'];
             } else {
@@ -105,8 +109,9 @@
             $sql = "SELECT * FROM packages where packageID = '$packageID';";
             
             $stmt = $this->getConnection()->prepare($sql);
+            $stmt->execute();
 
-            if ($stmt->execute()) {
+            if ($stmt->rowCount() > 0) {
                 $result = $stmt->fetch(PDO::FETCH_ASSOC);
                 return $result['packageDesc'];
             } else {
@@ -120,8 +125,9 @@
             $sql = "SELECT * FROM packages where packageID = '$packageID';";
             
             $stmt = $this->getConnection()->prepare($sql);
+            $stmt->execute();
 
-            if ($stmt->execute()) {
+            if ($stmt->rowCount() > 0) {
                 $result = $stmt->fetch(PDO::FETCH_ASSOC);
                 return $result['packageImage'];
             } else {

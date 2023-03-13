@@ -70,6 +70,9 @@ ALTER TABLE `customer`
 ALTER TABLE `hotel`
   MODIFY `hotelUid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
+
+-- 17:55, 13th Mar
+
 -- 
 -- Add packageImage for table 'packages'
 -- 

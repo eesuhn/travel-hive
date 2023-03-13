@@ -38,7 +38,7 @@
         <h5 class="card-header">View Packages</h5>
         <div class="card-body">
           <p class="card-text">Add New Packages or Edit Existing Packages</p>
-          <a href="#" class="btn btn-primary">Update Packages</a>
+          <a href="packagesH.front.php" class="btn btn-primary">Update Packages</a>
         </div>
       </div>
     </div>
