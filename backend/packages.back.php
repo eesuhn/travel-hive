@@ -1,5 +1,5 @@
 <?php
-    class Packages {
+    class Packages extends Database {
         private $packageID;
         private $hotelUid;
         private $packageName;
@@ -31,8 +31,7 @@
         public function registerPackage () {
             $sql = "INSERT INTO packages (packageID, hotelUid, packageName, packagePrice, packageDesc, packageImage) VALUES (:value1, :value2, :value3, :value4, :value5, :value6)";
 
-            $db = new Database();
-            $stmt = $db->getConnection()->prepare($sql);
+            $stmt = $this->connect()->prepare($sql);
 
             $stmt->bindParam(':value1', $value1);
             $stmt->bindParam(':value2', $value2);
@@ -57,10 +56,10 @@
         }
 
         // get packageId from the same hotelUid, put it into an array and return it
-        public function getPackageID ($hotelUid) {
+        public function getPackageIDSameHotelId ($hotelUid) {
             $sql = "SELECT packageID FROM packages where hotelUid = '$hotelUid';";
-            $db = new Database();
-            $stmt = $db->getConnection()->prepare($sql);
+            
+            $stmt = $this->getConnection()->prepare($sql);
 
             if ($stmt->execute()) {
                 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -74,8 +73,8 @@
         // display package name based on package id
         public function showName ($packageID) {
             $sql = "SELECT * FROM packages where packageID = '$packageID';";
-            $db = new Database();
-            $stmt = $db->getConnection()->prepare($sql);
+            
+            $stmt = $this->getConnection()->prepare($sql);
 
             if ($stmt->execute()) {
                 $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -89,8 +88,8 @@
         // display package price based on package id
         public function showPrice ($packageID) {
             $sql = "SELECT * FROM packages where packageID = '$packageID';";
-            $db = new Database();
-            $stmt = $db->getConnection()->prepare($sql);
+            
+            $stmt = $this->getConnection()->prepare($sql);
 
             if ($stmt->execute()) {
                 $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -104,8 +103,8 @@
         // display package description based on package id
         public function showDesc ($packageID) {
             $sql = "SELECT * FROM packages where packageID = '$packageID';";
-            $db = new Database();
-            $stmt = $db->getConnection()->prepare($sql);
+            
+            $stmt = $this->getConnection()->prepare($sql);
 
             if ($stmt->execute()) {
                 $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -119,8 +118,8 @@
         // display package image based on package id
         public function showImage ($packageID) {
             $sql = "SELECT * FROM packages where packageID = '$packageID';";
-            $db = new Database();
-            $stmt = $db->getConnection()->prepare($sql);
+            
+            $stmt = $this->getConnection()->prepare($sql);
 
             if ($stmt->execute()) {
                 $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -129,6 +128,42 @@
                 $error = $stmt->errorInfo();
                 echo "Error: " . $error[2];
             }
+        }
+
+        // update package name based on package id
+        public function setName ($packageID, $packageName) {
+            $sql = "UPDATE packages SET packageName = '$packageName' WHERE packageID = '$packageID';";
+
+            $stmt = $this->getConnection()->prepare($sql);
+
+            $stmt->execute();
+        }
+
+        // update package price based on package id
+        public function setPrice ($packageID, $packagePrice) {
+            $sql = "UPDATE packages SET packagePrice = '$packagePrice' WHERE packageID = '$packageID';";
+
+            $stmt = $this->getConnection()->prepare($sql);
+
+            $stmt->execute();
+        }
+
+        // update package description based on package id
+        public function setDesc ($packageID, $packageDesc) {
+            $sql = "UPDATE packages SET packageDesc = '$packageDesc' WHERE packageID = '$packageID';";
+
+            $stmt = $this->getConnection()->prepare($sql);
+
+            $stmt->execute();
+        }
+
+        // update package image based on package id
+        public function setImage ($packageID, $packageImage) {
+            $sql = "UPDATE packages SET packageImage = '$packageImage' WHERE packageID = '$packageID';";
+
+            $stmt = $this->getConnection()->prepare($sql);
+
+            $stmt->execute();
         }
     }
 ?>
