@@ -137,7 +137,7 @@
         }
 
         // update package name based on package id
-        public function setName ($packageID, $packageName) {
+        public function changeName ($packageID, $packageName) {
             $sql = "UPDATE packages SET packageName = '$packageName' WHERE packageID = '$packageID';";
 
             $stmt = $this->getConnection()->prepare($sql);
@@ -146,7 +146,7 @@
         }
 
         // update package price based on package id
-        public function setPrice ($packageID, $packagePrice) {
+        public function changePrice ($packageID, $packagePrice) {
             $sql = "UPDATE packages SET packagePrice = '$packagePrice' WHERE packageID = '$packageID';";
 
             $stmt = $this->getConnection()->prepare($sql);
@@ -155,7 +155,7 @@
         }
 
         // update package description based on package id
-        public function setDesc ($packageID, $packageDesc) {
+        public function changeDesc ($packageID, $packageDesc) {
             $sql = "UPDATE packages SET packageDesc = '$packageDesc' WHERE packageID = '$packageID';";
 
             $stmt = $this->getConnection()->prepare($sql);
@@ -164,7 +164,7 @@
         }
 
         // update package image based on package id
-        public function setImage ($packageID, $packageImage) {
+        public function changeImage ($packageID, $packageImage) {
             $sql = "UPDATE packages SET packageImage = '$packageImage' WHERE packageID = '$packageID';";
 
             $stmt = $this->getConnection()->prepare($sql);

@@ -26,7 +26,46 @@
                     <p class="card-text"><small class="text-muted">
                         <?=$packages->showDesc($id);?>
                     </small></p>
-                    <a class="btn btn-primary btn-sm" href="#" role="button">Edit</a>
+                    <a href="#updatePackage" data-bs-toggle="modal" data-bs-target="#updatePackage<?=$id?>" class="btn btn-primary btn-sm">Update</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="updatePackage<?=$id?>" tabindex="-1" role="dialog" aria-labelledby="profileTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileTitle">Update Package</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-12">
+                        <form id="update_package" method="POST" action="../includes/packagesH.inc.php" enctype="multipart/form-data">
+                            <div class="form-row">
+                                <input type="hidden" name="packageID" value="<?=$id?>">
+                                <div class="mb-3">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" value="<?=$packages->showName($id);?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="price">Price</label>
+                                    <input type="number" class="form-control" id="price" name="price" value="<?=$packages->showPrice($id);?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description">Description</label>
+                                    <input type="text" class="form-control" id="description" name="description" value="<?=$packages->showDesc($id);?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="input-group-text" for="fileUpload">Upload image</label>
+                                    <input type="file" name="fileUpload" id="fileUpload" class="form-control">
+                                </div>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button class="btn btn-primary" name="submit" id="submit">Save changes</button>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
