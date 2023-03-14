@@ -121,4 +121,4 @@ ALTER TABLE `packages`
 -- Add custGender for table 'customer'
 --
 ALTER TABLE `customer`
-  ADD COLUMN `custGender` char;
+  ADD `custGender` char NOT NULL AFTER `custPlace`;

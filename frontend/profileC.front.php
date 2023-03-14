@@ -68,28 +68,35 @@ $custId = $_SESSION["custUid"];
                   <input type="email" class="form-control" id="email" name="email" value="<?= $cust->showEmail($custId) ?>">
                 </div>
               </div>
-              <label for="pwd">Password</label>
-              <input type="password" class="form-control" id="pwd" name="pwd" placeholder="New Password">
+              <div class="mb-3">
+                <label for="pwd">Password</label>
+                <input type="password" class="form-control" id="pwd" name="pwd" placeholder="New Password">
+              </div>
               <div class="mb-3">
                 <label for="age">Age</label>
                 <input type="number" class="form-control" id="age" name="age" value="<?= $cust->showAge($custId) ?>">
               </div>
               <div class="mb-3">
-            <p>Gender</p>
-            <div class="row">
-              <div class="col-6">
-                <input type="radio" id="male" name="gender" value="M">
-                <label for="male">Male</label>
+                <div class="row">
+                  <label>Gender</label>
+                  <div class="col-6">
+                    <input type="radio" id="male" name="gender" value="M">
+                    <label for="male">Male</label>
+                  </div>
+                  <div class="col-6">
+                    <input type="radio" id="female" name="gender" value="F">
+                    <label for="female">Female</label>
+                  </div>
               </div>
-              <div class="col-6">
-                <input type="radio" id="female" name="gender" value="F">
-                <label for="female">Female</label>
+              <div class="mb-3">
+                <div class="row">
+                  <div class="col-12">
+                    <label for="placeOrigin">Place of Origin</label>
+                    <input type="placeOrigin" class="form-control" id="origin" name="origin" value="<?= $cust->showOrigin($custId) ?>">
+                  </div>
+                </div>
               </div>
             </div>
-              <div class="mb-3">
-                <label for="placeOrigin">Place of Origin</label>
-                <input type="placeOrigin" class="form-control" id="origin" name="origin" value="<?= $cust->showOrigin($custId) ?>">
-              </div>
           </div>
         </div>
       </div>
