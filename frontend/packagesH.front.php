@@ -32,6 +32,10 @@
                         <?=$packages->showDesc($id);?>
                     </small></p>
                     <a href="#updatePackage" data-bs-toggle="modal" data-bs-target="#updatePackage<?=$id?>" class="btn btn-primary btn-sm">Update</a>
+                    <form action="../includes/packagesH.inc.php" method="POST">
+                        <input type="hidden" name="packageID" value="<?=$id?>">
+                        <button type="submit" name="delete" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
             </div>
         </div>
     </div>

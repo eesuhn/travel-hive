@@ -107,4 +107,18 @@
                 window.location.href='../frontend/packagesH.front.php'
             </script>";
     }
+
+    // delete package
+    if (isset($_POST['delete'])) {
+
+        $packageID = $_POST['packageID'];
+
+        $packages->deletePackage($packageID);
+
+        echo "
+            <script>
+                alert('Deleted Successfully'); 
+                window.location.href='../frontend/packagesH.front.php'
+            </script>";
+    }
 ?>

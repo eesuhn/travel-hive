@@ -169,5 +169,20 @@
 
             $stmt->execute();
         }
+
+        // delete package based on package id
+        public function deletePackage ($packageID) {
+
+            $oldImage = $this->showImage($packageID);
+
+            // unlink the old image if there is any
+            unlink("$oldImage");
+
+            $sql = "DELETE FROM packages WHERE packageID = '$packageID';";
+
+            $stmt = $this->getConnection()->prepare($sql);
+
+            $stmt->execute();
+        }
     }
 ?>
