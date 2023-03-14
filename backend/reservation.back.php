@@ -17,17 +17,15 @@
         }
 
         public function getHotelDetails(){
-            $sql = "SELECT h.* FROM hotel h
+            $sql = "SELECT DISTINCT h.* FROM hotel h 
             JOIN packages p ON h.hotelUid = p.hotelUid
             WHERE hotelAdd LIKE '%$this->location%'
-            AND p.noOfPackages>0
             AND p.packageId NOT IN (
             SELECT r.packageId 
             FROM reservation r 
             WHERE r.hotelUid = p.hotelUid 
-            AND (r.checkInDate <= '$this->checkOutDate' AND r.checkOutDate >= '$this->checkInDate')
-            )
-            ";
+            AND (r.checkInDate <= '$this->checkInDate' AND r.checkOutDate >= '$this->checkOutDate')
+            );";
             $stmt = $this->connect()->query($sql);
             if ($stmt->rowCount() > 0) {
                 echo '<div class="title"><h1>Our Available Hotels</h1></div>';

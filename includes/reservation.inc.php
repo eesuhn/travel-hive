@@ -12,6 +12,10 @@
     $checkInDate = $_GET["inDate"];
     $checkOutDate = $_GET["outDate"];
 
+    $_SESSION["loc"] = $location;
+    $_SESSION["iDate"] = $checkInDate;
+    $_SESSION["oDate"] = $checkOutDate;
+
     $reservation = new Reservation();
     $reservation->setReservationDetails($location,$checkInDate,$checkOutDate);
     $reservation->getHotelDetails();
