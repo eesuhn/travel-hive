@@ -14,14 +14,12 @@ if (isset($_POST["submitU"])){
     $pwd = $_POST["pwd"];
     $age = (int)$_POST["age"];
     $origin = $_POST["origin"];
+    $gender = $_POST["gender"];
 
     //constructor methods and required functions
     $customer = new Customer();
-    $customer->setRegisterDetails($name,$email,$pwd,$age,$origin);
+    $customer->setCustDetails($name,$email,$pwd,$age,$origin,$gender);
     $customer->registerCustomer();
-
-    
-
 }
 
 if (isset($_POST["submitH"])){
