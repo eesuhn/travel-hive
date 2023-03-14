@@ -1,13 +1,13 @@
 <?php
-    include '../includes/navbar.php';
-    include '../includes/profileH.inc.php';
-    $hotelUid = $_SESSION["hotelUid"];
+include '../includes/navbar.php';
+include '../includes/profileH.inc.php';
+$hotelUid = $_SESSION["hotelUid"];
 ?>
 
 <div class="col d-flex justify-content-center">
     <div class="card mb-3" style="width: 700px; margin-top:20px">
         <div class="card-body">
-            <h5 class="card-title">Welcome back, 
+            <h5 class="card-title">Welcome back,
                 <?php
                 $hotel = new Hotel();
                 echo $hotel->showName($hotelUid);
@@ -16,21 +16,24 @@
 
             <center>
                 <div class="card mb-3" style="width: 500px; margin-top:10px">
-                    <img class="card-img-top" src="<?=$hotel->showImage($hotelUid);?>" alt="Card image cap"/>
+                    <img class="card-img-top" src="<?= $hotel->showImage($hotelUid); ?>" alt="Card image cap" />
                 </div>
             </center>
-            
+
             <p class="card-text"><small class="text-muted">
-                    Name: <?=$hotel->showName($hotelUid);?>
+                    Name: <?= $hotel->showName($hotelUid); ?>
                 </small></p>
             <p class="card-text"><small class="text-muted">
-                    Email: <?=$hotel->showEmail($hotelUid);?>
+                    Email: <?= $hotel->showEmail($hotelUid); ?>
                 </small></p>
             <p class="card-text"><small class="text-muted">
-                    Address: <?=$hotel->showAdd($hotelUid);?>
+                    Password: ********
                 </small></p>
             <p class="card-text"><small class="text-muted">
-                    Description: <?=$hotel->showDesc($hotelUid);?>
+                    Address: <?= $hotel->showAdd($hotelUid); ?>
+                </small></p>
+            <p class="card-text"><small class="text-muted">
+                    Description: <?= $hotel->showDesc($hotelUid); ?>
                 </small></p>
         </div>
     </div>
@@ -56,35 +59,39 @@
             <div class="modal-body">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-12">
-                    <form id="update_hotel" method="POST" action="../includes/profileH.inc.php" enctype="multipart/form-data">
-                        <div class="form-row">
-                            <div class="mb-3">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" id="name" name="name" value="<?=$hotel->showName($hotelUid);?>">
-                            </div>
-                            <div class="mb-3">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" value="<?=$hotel->showEmail($hotelUid);?>">
-                            </div>
-                            <div class="mb-3">
-                                <label for="address">Address</label>
-                                <input type="text" class="form-control" id="address" name="address" value="<?=$hotel->showAdd($hotelUid);?>">
-                            </div>
-                            <div class="mb-3">
-                                <label for="description">Description</label>
-                                <input type="text" class="form-control" id="description" name="description" value="<?=$hotel->showDesc($hotelUid);?>">
-                            </div>
-                            <div class="mb-3">
-                                <label class="input-group-text" for="fileUpload">Upload image</label>
-                                <input type="file" name="fileUpload" id="fileUpload" class="form-control">
-                            </div>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button class="btn btn-primary" name="submit" id="submit">Save changes</button>
+                        <form id="update_hotel" method="POST" action="../includes/profileH.inc.php" enctype="multipart/form-data">
+                            <div class="form-row">
+                                <div class="mb-3">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" value="<?= $hotel->showName($hotelUid); ?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" value="<?= $hotel->showEmail($hotelUid); ?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="pwd">Password</label>
+                                    <input type="password" class="form-control" id="pwd" name="pwd" placeholder="New Password">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="address">Address</label>
+                                    <input type="text" class="form-control" id="address" name="address" value="<?= $hotel->showAdd($hotelUid); ?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description">Description</label>
+                                    <input type="text" class="form-control" id="description" name="description" value="<?= $hotel->showDesc($hotelUid); ?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="input-group-text" for="fileUpload">Upload image</label>
+                                    <input type="file" name="fileUpload" id="fileUpload" class="form-control">
+                                </div>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button class="btn btn-primary" name="submit" id="submit">Save changes</button>
                         </form>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>

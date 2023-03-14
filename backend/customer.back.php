@@ -19,7 +19,7 @@ class Customer extends Account
     }
 
     //setting required attributes into object from form
-    public function setRegisterDetails($name, $email, $pwd, $age, $origin, $gender)
+    public function setCustDetails($name, $email, $pwd, $age, $origin, $gender)
     {
         $this->name = $name;
         $this->email = $email;

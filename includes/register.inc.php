@@ -18,7 +18,7 @@ if (isset($_POST["submitU"])){
 
     //constructor methods and required functions
     $customer = new Customer();
-    $customer->setRegisterDetails($name,$email,$pwd,$age,$origin,$gender);
+    $customer->setCustDetails($name,$email,$pwd,$age,$origin,$gender);
     $customer->registerCustomer();
 }
 
