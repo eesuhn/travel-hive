@@ -6,12 +6,12 @@
 ?>
     
 <div class="booking-form">
-    <form>
+    <form id="checkReservation" method="get" action="../includes/reservation.inc.php">
     <div class="row no-margin">
         <div class="col-md-3">
         <div class="form-group">
             <span class="form-label">Destination</span>
-            <input class="form-control" type="text" placeholder="Country, ZIP, city...">
+            <input class="form-control" name="location" type="text" placeholder="Country, ZIP, city...">
         </div>
         </div>
         <div class="col-md-6">
@@ -19,13 +19,13 @@
             <div class="col-md-5">
             <div class="form-group">
                 <span class="form-label">Check In</span>
-                <input class="form-control" type="date" required>
+                <input class="form-control" name="inDate" type="date" required>
             </div>
             </div>
             <div class="col-md-5">
             <div class="form-group">
                 <span class="form-label">Check out</span>
-                <input class="form-control" type="date" required>
+                <input class="form-control" name="outDate" type="date" required>
             </div>
             </div>
         </div>
