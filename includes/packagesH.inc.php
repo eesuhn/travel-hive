@@ -56,10 +56,12 @@
         $packageName = $_POST['name'];
         $packagePrice = $_POST['price'];
         $packageDesc = $_POST['description'];
+        $numberPackages = $_POST['numberPackages'];
 
         $packages->changeName($packageID, $packageName);
         $packages->changePrice($packageID, $packagePrice);
         $packages->changeDesc($packageID, $packageDesc);
+        $packages->changeNumPackages($packageID, $numberPackages);
 
         echo "
             <script>
@@ -97,8 +99,9 @@
         $packagePrice = $_POST['price'];
         $packageDesc = $_POST['description'];
         $packageImage = $newImg;
+        $numberPackages = $_POST['numberPackages'];
 
-        $packages->setPackageDetails($hotelUid, $packageName, $packagePrice, $packageDesc, $packageImage);
+        $packages->setPackageDetails($hotelUid, $packageName, $packagePrice, $packageDesc, $packageImage, $numberPackages);
         $packages->registerPackage();
 
         echo "

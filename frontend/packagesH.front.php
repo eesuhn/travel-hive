@@ -27,7 +27,7 @@
             <img class="card-img-top" src="<?=$packages->showImage($id);?>" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title"><?=$packages->showName($id);?></h5>
-                    <p class="card-text"><small>RM <?=$packages->showPrice($id);?></small></p>
+                    <p class="card-text"><small>RM <?=$packages->showPrice($id);?> || Packages available: <?=$packages->showNumPackages($id);?></small></p>
                     <p class="card-text"><small class="text-muted">
                         <?=$packages->showDesc($id);?>
                     </small></p>
@@ -63,6 +63,10 @@
                                 <div class="mb-3">
                                     <label for="description">Description</label>
                                     <textarea class="form-control" id="description" name="description" rows="3" style="resize: none;"><?=$packages->showDesc($id);?></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="numberPackages">Number of packages</label>
+                                    <input type="number" class="form-control" id="numberPackages" name="numberPackages" value="<?=$packages->showNumPackages($id);?>">
                                 </div>
                                 <div class="mb-3">
                                     <label class="input-group-text" for="fileUpload">Upload image</label>
@@ -110,6 +114,10 @@
                                 <div class="mb-3">
                                     <label for="description">Description</label>
                                     <textarea class="form-control" id="description" name="description" rows="3" style="resize: none;"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="numberPackages">Number of packages</label>
+                                    <input type="number" class="form-control" id="numberPackages" name="numberPackages" value="">
                                 </div>
                                 <div class="mb-3">
                                     <label class="input-group-text" for="fileUpload">Upload image</label>

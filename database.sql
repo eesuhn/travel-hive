@@ -105,3 +105,12 @@ ALTER TABLE `packages`
 --
 ALTER TABLE `packages`
   MODIFY `packageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+
+-- 17:14, 14th Mar
+
+-- 
+-- Add numPackages for table 'packages'
+--
+ALTER TABLE `packages`
+  ADD `numPackages` INT(11) NOT NULL AFTER `packageImage`;
