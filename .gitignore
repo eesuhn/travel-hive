@@ -4,5 +4,5 @@ backend/connection.back.php
 # outlier files (not used)
 .DS_Store
 
-# uploads
-uploads/
+uploads/*
+!uploads/.gitkeep
