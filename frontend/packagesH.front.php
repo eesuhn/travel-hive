@@ -31,11 +31,15 @@
                     <p class="card-text"><small class="text-muted">
                         <?=$packages->showDesc($id);?>
                     </small></p>
+                    <div class="btn-group mr-1">
                     <a href="#updatePackage" data-bs-toggle="modal" data-bs-target="#updatePackage<?=$id?>" class="btn btn-primary btn-sm">Update</a>
+                    </div>
+                    <div class="btn-group mr-1">
                     <form action="../includes/packagesH.inc.php" method="POST">
                         <input type="hidden" name="packageID" value="<?=$id?>">
                         <button type="submit" name="delete" class="btn btn-danger btn-sm">Delete</button>
                     </form>
+                    </div>
             </div>
         </div>
     </div>
