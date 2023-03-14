@@ -90,3 +90,18 @@ ALTER TABLE `packages`
 -- 
 ALTER TABLE `packages`
   ADD CONSTRAINT `hotelUid` FOREIGN KEY (`hotelUid`) REFERENCES `hotel` (`hotelUid`);
+
+
+-- 14:44, 14th Mar
+
+-- 
+-- Declare packageId as primary key for table 'packages'
+-- 
+ALTER TABLE `packages`
+  ADD PRIMARY KEY (`packageId`);
+
+-- 
+-- AUTO_INCREMENT for 'packageID' from table `packages`
+--
+ALTER TABLE `packages`
+  MODIFY `packageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
