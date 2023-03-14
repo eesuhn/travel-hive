@@ -26,8 +26,14 @@
         */
         if ($_POST["accType"]==="customer") {
             header("Location: ../index/index.php");
-        } else {
+        } else if ($_POST["accType"]==="hotel"){
             header("Location: ../frontend/dashboard_hotel.front.php");
+        } else {
+            echo "
+            <script>
+                alert('Please sign in to your account!'); 
+                window.location.href='../frontend/login.front.php'
+            </script>";
         }
     }
 ?>
