@@ -1,6 +1,6 @@
 <?php
     class Packages extends Database {
-        private $packageID;
+        
         private $hotelUid;
         private $packageName;
         private $packagePrice;
@@ -9,7 +9,7 @@
 
         // constructor with empty parameters
         public function __construct() {
-            $this->packageID = "";
+            
             $this->hotelUid = "";
             $this->packageName = "";
             $this->packagePrice = "";
@@ -18,8 +18,8 @@
         }
 
         // setter for every attributes
-        public function setPackageDetails ($packageID, $hotelUid, $packageName, $packagePrice, $packageDesc, $packageImage) {
-            $this->packageID = $packageID;
+        public function setPackageDetails ($hotelUid, $packageName, $packagePrice, $packageDesc, $packageImage) {
+            
             $this->hotelUid = $hotelUid;
             $this->packageName = $packageName;
             $this->packagePrice = $packagePrice;
@@ -29,7 +29,7 @@
 
         // create new package in database
         public function registerPackage () {
-            $sql = "INSERT INTO packages (packageID, hotelUid, packageName, packagePrice, packageDesc, packageImage) VALUES (:value1, :value2, :value3, :value4, :value5, :value6)";
+            $sql = "INSERT INTO packages (hotelUid, packageName, packagePrice, packageDesc, packageImage) VALUES (:value1, :value2, :value3, :value4, :value5)";
 
             $stmt = $this->connect()->prepare($sql);
 
@@ -38,16 +38,14 @@
             $stmt->bindParam(':value3', $value3);
             $stmt->bindParam(':value4', $value4);
             $stmt->bindParam(':value5', $value5);
-            $stmt->bindParam(':value6', $value6);
 
-            $value1 = $this->packageID;
-            $value2 = $this->hotelUid;
-            $value3 = $this->packageName;
-            $value4 = $this->packagePrice;
-            $value5 = $this->packageDesc;
-            $value6 = $this->packageImage;
+            $value1 = $this->hotelUid;
+            $value2 = $this->packageName;
+            $value3 = $this->packagePrice;
+            $value4 = $this->packageDesc;
+            $value5 = $this->packageImage;
 
-            if ($stmt->execute(array(':value1' => $value1, ':value2' => $value2, ':value3' => $value3, ':value4' => $value4, ':value5' => $value5, ':value6' => $value6))) {
+            if ($stmt->execute(array(':value1' => $value1, ':value2' => $value2, ':value3' => $value3, ':value4' => $value4, ':value5' => $value5))) {
                 echo "<script>alert('Package successfully created'); window.location.href='../frontend/packagesH.front.php'</script>";
             } else {
                 $error = $stmt->errorInfo();
@@ -68,7 +66,7 @@
 
             } else {
                 $error = $stmt->errorInfo();
-                echo "Error: " . $error[2];
+                return "Error: " . $error[2];
             }
         }
 
