@@ -1,8 +1,6 @@
 <?php
 include '../includes/navbar.php';
-include '../backend/connection.back.php';
-include '../backend/account.back.php';
-include '../backend/customer.back.php';
+include '../includes/profileC.inc.php';
 $custId = $_SESSION["custUid"];
 ?>
 
@@ -11,7 +9,6 @@ $custId = $_SESSION["custUid"];
     <div class="card-body">
       <h5 class="card-title">Welcome back,
         <?php
-        $cust = new Customer();
         echo $cust->showName($custId);
         ?>
       </h5>
@@ -28,7 +25,7 @@ $custId = $_SESSION["custUid"];
           Age: <?= $cust->showAge($custId); ?>
         </small></p>
       <p class="card-text"><small class="text-muted">
-          Gender: <?= $cust->showGender($custId); ?>
+          Gender: <?= $displayGender; ?>
         </small></p>
       <p class="card-text"><small class="text-muted">
           Place of origin: <?= $cust->showOrigin($custId); ?>
