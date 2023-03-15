@@ -17,15 +17,18 @@
         }
 
         public function getHotelDetails(){
-            $sql = "SELECT DISTINCT h.* FROM hotel h 
+            $sql = "
+            SELECT DISTINCT h.*
+            FROM hotel h
             JOIN packages p ON h.hotelUid = p.hotelUid
-            WHERE hotelAdd LIKE '%$this->location%'
+            WHERE hotelName LIKE '%$this->location%'
             AND p.packageId NOT IN (
-            SELECT r.packageId 
-            FROM reservation r 
-            WHERE r.hotelUid = p.hotelUid 
-            AND (r.checkInDate <= '$this->checkInDate' AND r.checkOutDate >= '$this->checkOutDate')
-            );";
+              SELECT r.packageId 
+              FROM reservation r 
+              WHERE r.hotelUid = p.hotelUid 
+              AND (r.checkInDate <= '$this->checkOutDate' AND r.checkOutDate >= '$this->checkInDate')
+            )
+            ";
             $stmt = $this->connect()->query($sql);
             if ($stmt->rowCount() > 0) {
                 echo '<div class="title"><h1>Our Available Hotels</h1></div>';
@@ -45,12 +48,23 @@
                     ';
                 }
             } else {
-                echo "No hotels are available at the moment.";
+                echo "<script>alert('No hotels were found for the given location or date. Please try again.'); window.location.href='../index/index.php'</script>";
             }
         }
         
         public function getPackageDetails($hotelId){
-            $sql = "SELECT * FROM packages WHERE hotelUid LIKE '%$hotelId%'";
+            $sql = "
+            SELECT DISTINCT p.*
+            FROM packages p
+            JOIN hotel h ON p.hotelUid = h.hotelUid
+            WHERE h.hotelUid = '$hotelId'
+            AND p.packageId NOT IN (
+              SELECT r.packageId 
+              FROM reservation r 
+              WHERE r.hotelUid = p.hotelUid 
+              AND (r.checkInDate <= '$this->checkOutDate' AND r.checkOutDate >= '$this->checkInDate')
+            )
+            ";
             $stmt = $this->connect()->query($sql);
             if ($stmt->rowCount() > 0) {
                 echo '<div class="title"><h1>Available Packages</h1></div>';
