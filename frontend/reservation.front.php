@@ -3,14 +3,13 @@
     include '../backend/connection.back.php';
     include '../backend/reservation.back.php';
 
-    $location = $_GET["location"];
-    $checkInDate = $_GET["inDate"];
-    $checkOutDate = $_GET["outDate"];
     $id = $_GET["id"];
+    $_SESSION["location"] = $_GET["location"];
+    $_SESSION["checkInDate"] = $_GET["checkInDate"];
+    $_SESSION["checkOutDate"] = $_GET["checkOutDate"];
 
+    echo $_SESSION["checkOutDate"];
     $reservation = new Reservation();
-    $reservation->getPackageDetails($id);
+    $reservation->getPackageDetails($id,$checkInDate,$checkOutDate);
 
 ?>
-
-

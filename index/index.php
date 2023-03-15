@@ -19,13 +19,13 @@
             <div class="col-md-5">
             <div class="form-group">
                 <span class="form-label">Check In</span>
-                <input class="form-control" name="inDate" type="date" required>
+                <input class="form-control" name="checkInDate" type="date" required>
             </div>
             </div>
             <div class="col-md-5">
             <div class="form-group">
                 <span class="form-label">Check out</span>
-                <input class="form-control" name="outDate" type="date" required>
+                <input class="form-control" name="checkOutDate" type="date" required>
             </div>
             </div>
         </div>
