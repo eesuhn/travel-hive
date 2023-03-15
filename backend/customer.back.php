@@ -117,5 +117,16 @@ class Customer extends Account
             return $row["custGender"];
         }
     }
+
+    // return password based on user id
+    public function getPwd ($uid) {
+        $sql = "SELECT * FROM customer where custUid = '$uid';";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $row["custPwd"];
+        }
+    }
 }
 ?>

@@ -47,7 +47,14 @@
         // grabbing data
         $newName = $_POST["name"];
         $newEmail = $_POST["email"];
-        $newPwd = $_POST["pwd"];
+
+        // if password is not empty, change password
+        if (!empty($_POST["pwd"])){
+            $newPwd = $_POST["pwd"];
+        } else {
+            $newPwd = $hotel->getPwd($_SESSION["hotelUid"]);
+        }
+
         $newAddress = $_POST["address"];
         $newDesc = $_POST["description"];
 
