@@ -128,6 +128,13 @@ class Hotel extends Account{
         $stmt->execute();
     }
 
+    // update hotel pwd based on user id
+    public function changePwd($uid, $newPwd){
+        $sql = "UPDATE hotel SET hotelPwd = '$newPwd' WHERE hotelUid = '$uid';";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+    }
+
     // update hotel address based on user id
     public function changeAdd($uid, $newAdd){
         $sql = "UPDATE hotel SET hotelAdd = '$newAdd' WHERE hotelUid = '$uid';";
