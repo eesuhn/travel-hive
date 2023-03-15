@@ -4,6 +4,8 @@ class Customer extends Account
     protected $name;
     protected $age;
     protected $origin;
+    protected $pwd;
+    protected $gender;
 
     //constructor method
     public function __construct()
@@ -12,22 +14,25 @@ class Customer extends Account
         $this->name = "";
         $this->age = "";
         $this->origin = "";
+        $this->pwd = "";
+        $this->gender = "";
     }
 
     //setting required attributes into object from form
-    public function setRegisterDetails($name, $email, $pwd, $age, $origin)
+    public function setCustDetails($name, $email, $pwd, $age, $origin, $gender)
     {
         $this->name = $name;
         $this->email = $email;
         $this->pwd = $pwd;
         $this->age = $age;
         $this->origin = $origin;
+        $this->gender = $gender;
     }
 
     //inserting details into database
     public function registerCustomer()
     {
-        $sql = "INSERT INTO customer (custName, custEmail, custPwd, custAge, custPlace) VALUES (:value1, :value2, :value3, :value4, :value5)";
+        $sql = "INSERT INTO customer (custName, custEmail, custPwd, custAge, custPlace, custGender) VALUES (:value1, :value2, :value3, :value4, :value5, :value6)";
 
         $stmt = $this->connect()->prepare($sql);
 
@@ -36,19 +41,29 @@ class Customer extends Account
         $stmt->bindParam(':value3', $value3);
         $stmt->bindParam(':value4', $value4);
         $stmt->bindParam(':value5', $value5);
+        $stmt->bindParam(':value6', $value6);
 
         $value1 = $this->name;
         $value2 = $this->email;
         $value3 = $this->pwd;
         $value4 = $this->age;
         $value5 = $this->origin;
+        $value6 = $this->gender;
 
-        if ($stmt->execute(array(':value1' => $value1, ':value2' => $value2, ':value3' => $value3, ':value4' => $value4, ':value5' => $value5))) {
+        if ($stmt->execute(array(':value1' => $value1, ':value2' => $value2, ':value3' => $value3, ':value4' => $value4, ':value5' => $value5, ':value6' => $value6))) {
             echo "<script>alert('Account successfully created'); window.location.href='../frontend/login.front.php'</script>";
         } else {
             $error = $stmt->errorInfo();
             echo "Error: " . $error[2];
         }
+    }
+    
+
+    public function updateCustDetails($uid, $newName, $newEmail, $newPwd, $newAge, $newOrigin, $newGender)
+    {
+        $sql = "UPDATE customer SET custName = '$newName', custEmail = '$newEmail', custPwd = '$newPwd', custAge = '$newAge', custPlace = '$newOrigin', custGender = '$newGender' WHERE custUid='$uid';";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
     }
 
 
@@ -92,25 +107,26 @@ class Customer extends Account
             return $row["custPlace"];
         }
     }
-    public function changeName($uid, $newName){
-        $sql = "UPDATE customer SET custName = '$newName' WHERE custUid='$uid';";
+    public function showGender($uid)
+    {
+        $sql = "SELECT * FROM customer where custUid = '$uid';";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $row["custGender"];
+        }
     }
-    public function changeEmail($uid, $newEmail){
-        $sql = "UPDATE customer SET custEmail = '$newEmail' WHERE custUid='$uid';";
+
+    // return password based on user id
+    public function getPwd ($uid) {
+        $sql = "SELECT * FROM customer where custUid = '$uid';";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute();
-    }
-    public function changeAge($uid, $newAge){
-        $sql = "UPDATE customer SET custAge = '$newAge' WHERE custUid='$uid';";
-        $stmt = $this->connect()->prepare($sql);
-        $stmt->execute();
-    }
-    public function changeOrigin($uid, $newOrigin){
-        $sql = "UPDATE customer SET custPlace = '$newOrigin' WHERE custUid='$uid';";
-        $stmt = $this->connect()->prepare($sql);
-        $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $row["custPwd"];
+        }
     }
 }
 ?>

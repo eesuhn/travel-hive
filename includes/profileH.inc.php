@@ -47,6 +47,14 @@
         // grabbing data
         $newName = $_POST["name"];
         $newEmail = $_POST["email"];
+
+        // if password is not empty, change password
+        if (!empty($_POST["pwd"])){
+            $newPwd = $_POST["pwd"];
+        } else {
+            $newPwd = $hotel->getPwd($_SESSION["hotelUid"]);
+        }
+
         $newAddress = $_POST["address"];
         $newDesc = $_POST["description"];
 
@@ -55,6 +63,7 @@
         // call method to update hotel details
         $change ->changeName($_SESSION["hotelUid"], $newName);
         $change ->changeEmail($_SESSION["hotelUid"], $newEmail);
+        $change ->changePwd($_SESSION["hotelUid"], $newPwd);
         $change ->changeAdd($_SESSION["hotelUid"], $newAddress);
         $change ->changeDesc($_SESSION["hotelUid"], $newDesc);
 

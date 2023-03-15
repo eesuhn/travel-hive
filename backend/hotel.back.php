@@ -114,6 +114,17 @@ class Hotel extends Account{
         }
     }
 
+    // return password based on user id
+    public function getPwd($uid){
+        $sql = "SELECT * FROM hotel where hotelUid = '$uid';";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $row['hotelPwd'];
+        }
+    }
+
     // update hotel name based on user id
     public function changeName($uid, $newName){
         $sql = "UPDATE hotel SET hotelName = '$newName' WHERE hotelUid = '$uid';";
@@ -124,6 +135,13 @@ class Hotel extends Account{
     // update hotel email based on user id
     public function changeEmail($uid, $newEmail){
         $sql = "UPDATE hotel SET hotelEmail = '$newEmail' WHERE hotelUid = '$uid';";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+    }
+
+    // update hotel pwd based on user id
+    public function changePwd($uid, $newPwd){
+        $sql = "UPDATE hotel SET hotelPwd = '$newPwd' WHERE hotelUid = '$uid';";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute();
     }

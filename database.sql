@@ -115,6 +115,16 @@ ALTER TABLE `packages`
 ALTER TABLE `packages`
   ADD `numPackages` INT(11) NOT NULL AFTER `packageImage`;
 
+
+-- 20:32, 14th Mar
+
+-- 
+-- Add custGender for table 'customer'
+--
+ALTER TABLE `customer`
+  ADD `custGender` char NOT NULL AFTER `custPlace`;
+
+
 -- 16:00, 15th Mar
 
 --
