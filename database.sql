@@ -114,3 +114,24 @@ ALTER TABLE `packages`
 --
 ALTER TABLE `packages`
   ADD `numPackages` INT(11) NOT NULL AFTER `packageImage`;
+
+-- 16:00, 15th Mar
+
+--
+-- Table structure for table `reservation`
+--
+
+CREATE TABLE `reservation` (
+  `resId` int(255) NOT NULL,
+  `checkInDate` date NOT NULL,
+  `checkOutDate` date NOT NULL,
+  `packageId` int(255) NOT NULL,
+  `hotelUid` int(255) NOT NULL,
+  `custUid` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `reservation`
+  ADD PRIMARY KEY (`resId`);
+
+ALTER TABLE `reservation`
+  MODIFY `resId` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
