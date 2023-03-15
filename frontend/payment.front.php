@@ -6,14 +6,17 @@ include '../includes/navbar.php';
 include '../backend/connection.back.php';
 include '../backend/payment.back.php';
 $custId = $_SESSION["custUid"];
+$hotelId = $_SESSION["hotelUid"];
 $payment = new Payment();
+$hotel = new Hotel();
+//reservation = new Reservation();
 ?>
 
 <div class="col d-flex justify-content-center">
     <div class="card mb-3" style="width: 700px; margin-top:20px">
         <img class="card-img-top" src="../images/beachsuite.png" alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title">Beach Suite, Como Malfuushi</h5>
+            <h5 class="card-title"><?=$hotel->showName($hotelId);?></h5>
             <p class="card-text"><small>Check-in Date: 22/11/2003<br>Check-out Date: 25/11/2003</small></p>
         </div>
     </div>
@@ -38,7 +41,7 @@ $payment = new Payment();
                 </tr>
                 <tr>
                     <td>Sub-Total:</td>
-                    <td>$600.00</td>
+                    <td>RM </td>
                 </tr>
                 <tr>
                     <td>Booking Fee:</td>

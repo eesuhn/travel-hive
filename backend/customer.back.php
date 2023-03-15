@@ -2,9 +2,10 @@
 class Customer extends Account
 {
     protected $name;
+    protected $email;  
     protected $age;
-    protected $origin;
     protected $pwd;
+    protected $origin;
     protected $gender;
 
     //constructor method
@@ -12,9 +13,10 @@ class Customer extends Account
     {
         parent::__construct();
         $this->name = "";
+        $this->email = "";
+        $this->pwd = "";
         $this->age = "";
         $this->origin = "";
-        $this->pwd = "";
         $this->gender = "";
     }
 

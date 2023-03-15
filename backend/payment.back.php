@@ -62,6 +62,17 @@ class Payment extends Database{
         echo "<script>alert(`$this->payMethod`)</script>";
         return $this->payMethod;
     }
+
+    public function numOfDays($checkInDate,$checkOutDate){
+        //count the number of days between check in and check out date  
+        $date1 = strtotime($checkInDate);
+        $date2 = strtotime($checkOutDate);
+        $diff = abs($date2 - $date1);
+        $years = floor($diff / (365*60*60*24));
+        $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
+        $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
+        return $days;
+    }
 }
 
 ?>
