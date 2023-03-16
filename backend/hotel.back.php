@@ -2,12 +2,12 @@
 
 class Hotel extends Account{
 
-    protected $hName;
-    protected $hEmail;
-    protected $hPwd;
-    protected $hAdd;
-    protected $hDesc;
-    protected $imgPath;
+    private $hName;
+    private $hEmail;
+    private $hPwd;
+    private $hAdd;
+    private $hDesc;
+    private $imgPath;
 
     // constructor method
     public function __construct(){

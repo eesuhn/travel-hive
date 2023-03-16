@@ -1,8 +1,8 @@
 <?php
     class Reservation extends Database {
-        protected $location;
-        protected $checkInDate;
-        protected $checkOutDate;
+        private $location;
+        private $checkInDate;
+        private $checkOutDate;
 
         public function __construct() {
             $this->location = "";
