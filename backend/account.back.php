@@ -1,5 +1,6 @@
 <?php
 class Account extends Database{
+    
     protected $email;
     protected $pwd;
 

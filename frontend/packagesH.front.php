@@ -69,6 +69,8 @@
                                             echo $row['roomNum'];
                                             echo "\n";
                                         }
+                                    } else {
+                                        echo "No room assigned";
                                     }?></textarea>
                                 </div>
 
