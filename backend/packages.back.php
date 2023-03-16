@@ -6,7 +6,6 @@
         private $packagePrice;
         private $packageDesc;
         private $packageImage;
-        private $numPackages;
 
         // constructor with empty parameters
         public function __construct() {
@@ -16,23 +15,21 @@
             $this->packagePrice = "";
             $this->packageDesc = "";
             $this->packageImage = "";
-            $this->numPackages = "";
         }
 
         // setter for every attributes
-        public function setPackageDetails ($hotelUid, $packageName, $packagePrice, $packageDesc, $packageImage, $numPackages) {
+        public function setPackageDetails ($hotelUid, $packageName, $packagePrice, $packageDesc, $packageImage) {
             
             $this->hotelUid = $hotelUid;
             $this->packageName = $packageName;
             $this->packagePrice = $packagePrice;
             $this->packageDesc = $packageDesc;
             $this->packageImage = $packageImage;
-            $this->numPackages = $numPackages;
         }
 
         // create new package in database
         public function registerPackage () {
-            $sql = "INSERT INTO packages (hotelUid, packageName, packagePrice, packageDesc, packageImage, numPackages) VALUES (:value1, :value2, :value3, :value4, :value5, :value6)";
+            $sql = "INSERT INTO packages (hotelUid, packageName, packagePrice, packageDesc, packageImage) VALUES (:value1, :value2, :value3, :value4, :value5)";
 
             $stmt = $this->connect()->prepare($sql);
 
@@ -41,16 +38,14 @@
             $stmt->bindParam(':value3', $value3);
             $stmt->bindParam(':value4', $value4);
             $stmt->bindParam(':value5', $value5);
-            $stmt->bindParam(':value6', $value6);
 
             $value1 = $this->hotelUid;
             $value2 = $this->packageName;
             $value3 = $this->packagePrice;
             $value4 = $this->packageDesc;
             $value5 = $this->packageImage;
-            $value6 = $this->numPackages;
 
-            if ($stmt->execute(array(':value1' => $value1, ':value2' => $value2, ':value3' => $value3, ':value4' => $value4, ':value5' => $value5, ':value6' => $value6))) {
+            if ($stmt->execute(array(':value1' => $value1, ':value2' => $value2, ':value3' => $value3, ':value4' => $value4, ':value5' => $value5))) {
                 echo "<script>alert('Package successfully created'); window.location.href='../frontend/packagesH.front.php'</script>";
             } else {
                 $error = $stmt->errorInfo();
@@ -139,22 +134,6 @@
             }
         }
 
-        // display number of packages based on package id
-        public function showNumPackages ($packageID) {
-            $sql = "SELECT * FROM packages where packageID = '$packageID';";
-            
-            $stmt = $this->getConnection()->prepare($sql);
-            $stmt->execute();
-
-            if ($stmt->rowCount() > 0) {
-                $result = $stmt->fetch(PDO::FETCH_ASSOC);
-                return $result['numPackages'];
-            } else {
-                $error = $stmt->errorInfo();
-                echo "Error: " . $error[2];
-            }
-        }
-
         // update package name based on package id
         public function changeName ($packageID, $packageName) {
             $sql = "UPDATE packages SET packageName = '$packageName' WHERE packageID = '$packageID';";
@@ -185,15 +164,6 @@
         // update package image based on package id
         public function changeImage ($packageID, $packageImage) {
             $sql = "UPDATE packages SET packageImage = '$packageImage' WHERE packageID = '$packageID';";
-
-            $stmt = $this->getConnection()->prepare($sql);
-
-            $stmt->execute();
-        }
-
-        // update number of packages based on package id
-        public function changeNumPackages ($packageID, $numPackages) {
-            $sql = "UPDATE packages SET numPackages = '$numPackages' WHERE packageID = '$packageID';";
 
             $stmt = $this->getConnection()->prepare($sql);
 
