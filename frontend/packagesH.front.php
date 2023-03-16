@@ -57,7 +57,7 @@
                 <div class="modal-body">
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-12">
-                        <form id="add_rooms" method="POST" action="#" enctype="multipart/form-data">
+                        <form id="add_rooms" method="POST" action="../includes/room.inc.php" enctype="multipart/form-data">
                             <div class="form-row">
                                 Rooms Available: 
 
