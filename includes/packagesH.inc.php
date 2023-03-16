@@ -3,6 +3,7 @@
     include "../backend/account.back.php";
     include "../backend/hotel.back.php";
     include '../backend/packages.back.php';
+    include '../backend/room.back.php';
 
     // if session is not started, start it
     if (session_status() == PHP_SESSION_NONE) {
@@ -12,7 +13,7 @@
 
     $hotel = new Hotel();
     $packages = new Packages();
-
+    $room = new Room();
 
     // update package
     $oldImg = $packages->showImage($hotelUid);
@@ -118,6 +119,22 @@
         echo "
             <script>
                 alert('Deleted Successfully'); 
+                window.location.href='../frontend/packagesH.front.php'
+            </script>";
+    }
+
+    // add room
+    if (isset($_POST['submitR'])) {
+
+        $packageID = $_POST['packageID'];
+        $roomNum = $_POST['roomNum'];
+
+        $room->setRoomDetails($roomNum, $packageID, $hotelUid);
+        $room->registerRoom();
+
+        echo "
+            <script>
+                alert('Added Successfully'); 
                 window.location.href='../frontend/packagesH.front.php'
             </script>";
     }
