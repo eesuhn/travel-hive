@@ -59,10 +59,6 @@ if (session_status() == PHP_SESSION_ACTIVE && empty($_SESSION["accountType"])) {
     </a>
     <div class="navbar">
       <div class="navbar-nav">
-        <a class="nav-item nav-link" href="../index/index.php">Home</a>
-
-        <!-- redirect to booking page to book for customers -->
-        <a class="nav-item nav-link" href="../frontend/booking.front.php">Bookings</a>
 
         <!--  
           redirect to dashboard which show: 
@@ -71,6 +67,10 @@ if (session_status() == PHP_SESSION_ACTIVE && empty($_SESSION["accountType"])) {
             - maintain bookings
         -->
         <a class="nav-item nav-link" href="../frontend/dashboard_hotel.front.php">Dashboard</a>
+
+        <!-- redirect to booking page to book for customers -->
+        <a class="nav-item nav-link" href="../frontend/booking.front.php">Bookings</a>
+
         <a class="nav-item nav-link" href="../includes/logout.inc.php">Logout</a>
       </div>
     </div>
