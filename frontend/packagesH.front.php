@@ -30,7 +30,7 @@
                     <a href="#addRoom" data-bs-toggle="modal" data-bs-target="#addRoom<?=$id?>" class="btn btn-primary btn-sm">Add rooms</a>
                 </div>
                 <h5 class="card-title"><?=$packages->showName($id);?></h5>
-                    <p class="card-text"><small>RM <?=$packages->showPrice($id);?> || Packages available: <?=$packages->showNumPackages($id);?></small></p>
+                    <p class="card-text"><small>RM <?=$packages->showPrice($id);?></small></p>
                     <p class="card-text"><small class="text-muted">
                         <?=$packages->showDesc($id);?>
                     </small></p>
@@ -103,10 +103,6 @@
                                     <textarea class="form-control" id="description" name="description" rows="3" style="resize: none;"><?=$packages->showDesc($id);?></textarea>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="numberPackages">Number of packages</label>
-                                    <input type="number" class="form-control" id="numberPackages" name="numberPackages" value="<?=$packages->showNumPackages($id);?>">
-                                </div>
-                                <div class="mb-3">
                                     <label class="input-group-text" for="fileUpload">Upload image</label>
                                     <input type="file" name="fileUpload" id="fileUpload" class="form-control">
                                 </div>
@@ -152,10 +148,6 @@
                                 <div class="mb-3">
                                     <label for="description">Description</label>
                                     <textarea class="form-control" id="description" name="description" rows="3" style="resize: none;"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="numberPackages">Number of packages</label>
-                                    <input type="number" class="form-control" id="numberPackages" name="numberPackages" value="">
                                 </div>
                                 <div class="mb-3">
                                     <label class="input-group-text" for="fileUpload">Upload image</label>
