@@ -6,10 +6,10 @@ include '../backend/hotel.back.php';
 include '../backend/packages.back.php';
 include '../backend/payment.back.php';
 $custUid = $_SESSION["custUid"];
-$price = $_SESSION["price"];
 $payment = new Payment();
 
 if (isset($_POST["submit"])){
+    $price = $_SESSION["price"];
     // if user chose to pay now, save payment details and redirect to paidOnline.front.php
     if($_POST["submit"]=="pay-now"){
         $payment->payNow($price);
