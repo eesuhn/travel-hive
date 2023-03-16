@@ -41,7 +41,7 @@
                                 <h5 class="card-title">'.$row["hotelName"].'</h5>
                                 <p class="card-text">'.$row["hotelAdd"].'</p>
                                 <p class="card-text"><small class="text-muted">'.$row["hotelDesc"].'</small></p>
-                                <a class="btn btn-primary btn-sm" href="../frontend/reservation.front.php?id='.$row["hotelUid"].'" role="button">View More</a>
+                                <a class="btn btn-primary btn-sm" href="../frontend/reservation.front.php?hotelId='.$row["hotelUid"].'" role="button">View More</a>
                             </div>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                                 </small></p>
                                 <form action="../frontend/payment.front.php" method="POST">
                                     <input type="hidden" name="packageID" value='.$row["packageId"].'>
-                                    <a class="btn btn-primary btn-sm" href="../frontend/payment.front.php" role="button">Book now</a>
+                                    <a class="btn btn-primary btn-sm" href="../frontend/payment.front.php?packId='.$row["packageId"].'" role="button">Book now</a>
                                 </form>
                             </div>
                         </div>
