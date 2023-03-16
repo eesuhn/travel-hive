@@ -3,6 +3,7 @@
     include "../backend/account.back.php";
     include "../backend/hotel.back.php";
     include '../backend/packages.back.php';
+    include '../backend/room.back.php';
 
     // if session is not started, start it
     if (session_status() == PHP_SESSION_NONE) {
@@ -12,7 +13,7 @@
 
     $hotel = new Hotel();
     $packages = new Packages();
-
+    $room = new Room();
 
     // update package
     $oldImg = $packages->showImage($hotelUid);
@@ -56,12 +57,10 @@
         $packageName = $_POST['name'];
         $packagePrice = $_POST['price'];
         $packageDesc = $_POST['description'];
-        $numberPackages = $_POST['numberPackages'];
 
         $packages->changeName($packageID, $packageName);
         $packages->changePrice($packageID, $packagePrice);
         $packages->changeDesc($packageID, $packageDesc);
-        $packages->changeNumPackages($packageID, $numberPackages);
 
         echo "
             <script>
@@ -99,9 +98,8 @@
         $packagePrice = $_POST['price'];
         $packageDesc = $_POST['description'];
         $packageImage = $newImg;
-        $numberPackages = $_POST['numberPackages'];
 
-        $packages->setPackageDetails($hotelUid, $packageName, $packagePrice, $packageDesc, $packageImage, $numberPackages);
+        $packages->setPackageDetails($hotelUid, $packageName, $packagePrice, $packageDesc, $packageImage);
         $packages->registerPackage();
 
         echo "
@@ -121,6 +119,22 @@
         echo "
             <script>
                 alert('Deleted Successfully'); 
+                window.location.href='../frontend/packagesH.front.php'
+            </script>";
+    }
+
+    // add room
+    if (isset($_POST['submitR'])) {
+
+        $packageID = $_POST['packageID'];
+        $roomNum = $_POST['roomNum'];
+
+        $room->setRoomDetails($roomNum, $packageID, $hotelUid);
+        $room->registerRoom();
+
+        echo "
+            <script>
+                alert('Added Successfully'); 
                 window.location.href='../frontend/packagesH.front.php'
             </script>";
     }

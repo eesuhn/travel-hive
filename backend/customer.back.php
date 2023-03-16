@@ -1,12 +1,12 @@
 <?php
 class Customer extends Account
 {
-    protected $name;
-    protected $email;  
-    protected $age;
-    protected $pwd;
-    protected $origin;
-    protected $gender;
+    private $name;
+    private $email;
+    private $pwd;
+    private $age;
+    private $origin;
+    private $gender;
 
     //constructor method
     public function __construct()
