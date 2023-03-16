@@ -22,7 +22,7 @@ class Account extends Database{
             $_SESSION["custUid"] = $row["custUid"];
             echo "<script>alert('You are now logged in'); window.location.href='../index/index.php'</script>";
         }else{
-            echo "<script>alert('No account found'); window.location.href='../frontend/check.php'</script>";
+            echo "<script>alert('No account found'); window.location.href='../frontend/login.front.php'</script>";
         }
     }
     public function loginHotel(){
@@ -35,9 +35,9 @@ class Account extends Database{
             $_SESSION["accountType"] = "hotel";
             $_SESSION["hotelUid"] = $row["hotelUid"];
             $_SESSION["hotelName"] = $row["hotelName"];
-            echo "<script>alert('You are now logged in'); window.location.href='../index/index.php'</script>";
+            echo "<script>alert('You are now logged in'); window.location.href='../frontend/dashboard_hotel.front.php'</script>";
         }else{
-            echo "<script>alert('No account found window.location.href='../frontend/check.php'</script>";
+            echo "<script>alert('No account found'); window.location.href='../frontend/login.front.php'</script>";
         }
     }
 }

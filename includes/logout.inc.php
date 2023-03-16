@@ -4,5 +4,6 @@
         session_start();
     }
     session_destroy();
-    header("Location: ../index/index.php");
+    echo "<script>alert('You are now logged out.'); window.location.href='../index/index.php'</script>";
+
 ?>

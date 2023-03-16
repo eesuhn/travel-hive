@@ -27,10 +27,10 @@
           <form id="login" method="POST" action="../includes/login.inc.php">
             <div class="row">
             <select class="form-select" aria-label="form-select" name="accType">
-            <option selected>Select Login Type</option>
-            <option value="customer">Customer</option>
+            <option selected="customer" value="customer">Customer</option>
             <option value="hotel">Hotel</option>
             </select>
+            <label class="form-label" for="accType" name="accType">Select Account Type</label>
 
             <div class="form-outline mb-2 py-5">
               <input type="email" name="email" id="email" class="form-control" />
