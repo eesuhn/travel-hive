@@ -71,8 +71,7 @@ if (is_array($packageID)) {
                                     <div class="form-row">
                                         <div class="mb-3">
                                             <label for="">Room Available: </label>
-                                            <textarea class="form-control" rows="5" style="resize: none;" readonly>
-                                            <?php
+                                            <textarea class="form-control" rows="5" style="resize: none;" readonly><?php
                                             $roomNum = $room->getRoomNum($id);
                                             if (is_array($roomNum)) {
                                                 foreach ($roomNum as $row) {
@@ -81,7 +80,8 @@ if (is_array($packageID)) {
                                                 }
                                             } else {
                                                 echo "No room assigned";
-                                            } ?></textarea>
+                                            } ?></textarea>  
+
                                         </div>
 
                                         <input type="hidden" name="packageID" value="<?= $id ?>">
