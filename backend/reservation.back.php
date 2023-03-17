@@ -157,6 +157,49 @@
                 echo "Error: " . $error[2];
             }
         }
+
+        public function showReservations($custUid){
+            $sql = "
+            SELECT r.checkInDate, r.checkOutDate, h.hotelName, h.hotelAdd, h.hotelImage, p.packageName
+            FROM reservation r 
+            JOIN room s ON r.roomId = s.roomId
+            JOIN packages p ON p.packageId = s.packageId
+            LEFT JOIN hotel h ON h.hotelUid = p.hotelUid
+            WHERE custUid = $custUid;     
+            ";
+            $stmt = $this->connect()->query($sql);
+            if ($stmt->rowCount() > 0) {    
+                echo'
+                <div class="title">
+                <h1>Your Upcoming Reservations</h1>
+                </div>
+                ';
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo '
+                <div class="col d-flex justify-content-center">
+                    <div class="card mb-3" style="width: 700px; margin-top:20px">
+                        <img class="card-img-top" src='.$row["hotelImage"].'alt="Card image cap">
+                        <div class="card-body">
+                        <h5 class="card-title">'.$row["packageName"].', '.$row["hotelName"].'</h5>
+                        <p class="card-text">'.$row["h.hotelAdd"].'</p>
+                        <p class="card-text"><small>Check-in Date: '.$row["checkInDate"].'<br>Check-out Date: '.$row["checkOutDate"].'</small></p>
+                        <p class="card-text"><small>Payment: Pay Later</small></p>
+                        <a class="btn btn-primary btn-sm" href="#" role="button">Cancel Reservation</a>
+                        <a class="btn btn-primary btn-sm" href="#" role="button">Edit Reservation</a>
+                    </div>
+                    </div>
+                </div>
+                ';
+                }
+            }else{
+                echo'
+                <div class="title">
+                <h1>No Reservations Found</h1>
+                </div>
+                ';
+            }
+        }
+
     }
 
 ?>
