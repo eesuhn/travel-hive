@@ -122,3 +122,27 @@ ALTER TABLE `reservation`
 ALTER TABLE `reservation`
     DROP `packageId`,
     DROP `hotelUid`;
+    
+
+-- 11:00, 17th Mar 23'
+
+-- Table structure for table `payment`
+
+CREATE TABLE `payment` (
+    `refNo` int(11) NOT NULL,
+    `finalPrice` double(10,2) NOT NULL,
+    `payMethod` varchar(255) NOT NULL,
+    `payStatus` varchar(255) NOT NULL
+)
+
+-- Add primary key for table `payment`
+ALTER TABLE `payment`
+    ADD PRIMARY KEY (`refNo`);
+
+-- Add auto increment for table `payment`
+ALTER TABLE `payment`
+    MODIFY `refNo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+-- Drop constraint packageId from room table
+ALTER TABLE `room`
+    DROP FOREIGN KEY `room_ibfk_1`;
