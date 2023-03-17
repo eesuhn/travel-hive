@@ -123,7 +123,7 @@
             </script>";
     }
 
-    // add room
+    // add rooms
     if (isset($_POST['submitR'])) {
 
         $packageID = $_POST['packageID'];
@@ -135,6 +135,18 @@
         echo "
             <script>
                 alert('Added Successfully'); 
+                window.location.href='../frontend/packagesH.front.php'
+            </script>";
+    }
+    //delete rooms
+    if (isset($_POST['deleteR'])) {
+        $roomNum = $_POST['roomNum'];
+        $packageID = $_POST['packageID'];
+        $room->deleteRoomNum($roomNum, $packageID);
+
+        echo "
+            <script>
+                alert('Deleted Successfully'); 
                 window.location.href='../frontend/packagesH.front.php'
             </script>";
     }

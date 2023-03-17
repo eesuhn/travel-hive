@@ -178,11 +178,15 @@
             // unlink the old image if there is any
             unlink("$oldImage");
 
-            $sql = "DELETE FROM packages WHERE packageID = '$packageID';";
-
+            //delete all rooms in the package
+            $sql = "DELETE FROM room WHERE packageId = '$packageID';";
             $stmt = $this->getConnection()->prepare($sql);
-
             $stmt->execute();
+
+            //delete package
+            $sql2 = "DELETE FROM packages WHERE packageID = '$packageID';";
+            $stmt2 = $this->getConnection()->prepare($sql2);
+            $stmt2->execute();
         }
     }
 ?>
