@@ -33,6 +33,7 @@ if (session_status() == PHP_SESSION_ACTIVE && empty($_SESSION["accountType"])) {
 <?php
 } else if (session_status() == PHP_SESSION_ACTIVE && ($_SESSION["accountType"] === "customer")) {
 ?>
+
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light px-2">
     <a class="navbar-brand" href="../index/index.php">
       <img src="../includes/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -41,7 +42,7 @@ if (session_status() == PHP_SESSION_ACTIVE && empty($_SESSION["accountType"])) {
     <div class="navbar">
       <div class="navbar-nav">
         <a class="nav-item nav-link" href="../index/index.php">Home</a>
-        <a class="nav-item nav-link" href="../frontend/showReservation.front.php">Resrvations</a>
+        <a class="nav-item nav-link" href="../frontend/showReservation.front.php">Reservations</a>
         <a class="nav-item nav-link" href="../frontend/profileC.front.php">Profile</a>
         <a class="nav-item nav-link" href="../includes/logout.inc.php">Logout</a>
       </div>

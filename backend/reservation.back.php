@@ -160,7 +160,7 @@
 
         public function showReservations($custUid){
             $sql = "
-            SELECT r.checkInDate, r.checkOutDate, h.hotelName, h.hotelAdd, h.hotelImage, p.packageName
+            SELECT r.resId, r.checkInDate, r.checkOutDate, h.hotelName, h.hotelAdd, h.hotelImage, p.packageName
             FROM reservation r 
             JOIN room s ON r.roomId = s.roomId
             JOIN packages p ON p.packageId = s.packageId
@@ -181,10 +181,10 @@
                         <img class="card-img-top" src='.$row["hotelImage"].'alt="Card image cap">
                         <div class="card-body">
                         <h5 class="card-title">'.$row["packageName"].', '.$row["hotelName"].'</h5>
-                        <p class="card-text">'.$row["h.hotelAdd"].'</p>
+                        <p class="card-text">'.$row["hotelAdd"].'</p>
                         <p class="card-text"><small>Check-in Date: '.$row["checkInDate"].'<br>Check-out Date: '.$row["checkOutDate"].'</small></p>
                         <p class="card-text"><small>Payment: Pay Later</small></p>
-                        <a class="btn btn-primary btn-sm" href="#" role="button">Cancel Reservation</a>
+                        <a class="btn btn-primary btn-sm" href="../includes/cancelReservation.inc.php?resId='.$row["resId"].'" role="button">Cancel Reservation</a>
                         <a class="btn btn-primary btn-sm" href="#" role="button">Edit Reservation</a>
                     </div>
                     </div>
@@ -200,6 +200,15 @@
             }
         }
 
+        public function cancelReservation($resId){
+            $sql = "DELETE FROM reservation WHERE resId = $resId";
+            if($this->connect()->query($sql)){
+                echo "<script>alert('Your reservation have been successfully cancelled.'); window.location.href='../frontend/showReservation.front.php'</script>";
+            }else{
+                echo "<script>alert('Your reservation have not been cancelled successfully. Please try again.'); window.location.href='../frontend/showReservation.front.php'</script>";
+            }
+
+        }
     }
 
 ?>
