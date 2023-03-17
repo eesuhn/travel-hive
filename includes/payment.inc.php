@@ -13,14 +13,14 @@
     }
     
     $custUid = $_SESSION["custUid"];
-    $packageId = $_SESSION["packId"];
     $checkIn = $_SESSION["checkInDate"];
     $checkOut = $_SESSION["checkOutDate"];
-
+    
     $payment = new Payment();
     $reservation = new Reservation();
-
+    
     if (isset($_POST["submit"])){
+        $packageId = $_SESSION["packId"];
         $price = $_SESSION["price"];
 
         // if user chose to pay now, save payment details and redirect to paidOnline.front.php
