@@ -21,7 +21,7 @@
     <div class="card-body py-5 px-md-5">
 
       <div class="row d-flex justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-4">
           <h2 class="fw-bold mb-5">Sign in to your account</h2>
           
           <form id="login" method="POST" action="../includes/login.inc.php">
@@ -44,7 +44,7 @@
 
             <a href="#register" data-bs-target="#register" data-bs-toggle="modal" style="text-decoration:none; margin:5px;">Don't have an account?</a>
             
-            <button type="submit" name="submit" class="btn btn-primary">Login</button>
+            <center><button type="submit" name="submit" class="btn btn-primary" style="width: 40%;">Login</button></center>
           </form>
         </div>
       </div>

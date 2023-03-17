@@ -21,8 +21,8 @@
     </div>
 </div>
 
-<div class="row px-2 py-2">
-  <div class="col-sm-12 px-3 py-3">
+<div class="row px-2 py-2 justify-content-center col d-flex">
+  <div class="col-sm-7 px-3 py-3">
     <div class="card bg-light border-light text-center">
         <h5 class="card-header">Update Profile</h5>
         <div class="card-body">
@@ -32,8 +32,10 @@
       </div>
     </div>
   </div>
+</div>
 
-  <div class="col-sm-12 px-3 py-3">
+<div class="row px-2 py-2 justify-content-center col d-flex">
+  <div class="col-sm-7 px-3 py-3">
     <div class="card bg-light border-light text-center">
         <h5 class="card-header">View Packages</h5>
         <div class="card-body">
@@ -43,8 +45,10 @@
       </div>
     </div>
   </div>
+</div>
 
-  <div class="col-sm-12 px-3 py-3">
+<div class="row px-2 py-2 justify-content-center col d-flex">
+  <div class="col-sm-7 px-3 py-3">
     <div class="card bg-light border-light text-center">
         <h5 class="card-header">View Bookings</h5>
         <div class="card-body">
@@ -54,5 +58,4 @@
       </div>
     </div>
   </div>
-
 </div>
