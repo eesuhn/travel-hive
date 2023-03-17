@@ -57,5 +57,11 @@
                 return "Error: " . $error[2];
             }
         }
+
+        public function deleteRoomNum ($roomNum, $packageId) {
+            $sql = "DELETE FROM room where roomNum = '$roomNum' AND packageId = '$packageId';";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute();
+        }
     }
 ?>
