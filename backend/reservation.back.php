@@ -183,9 +183,8 @@
                         <h5 class="card-title">'.$row["packageName"].', '.$row["hotelName"].'</h5>
                         <p class="card-text">'.$row["hotelAdd"].'</p>
                         <p class="card-text"><small>Check-in Date: '.$row["checkInDate"].'<br>Check-out Date: '.$row["checkOutDate"].'</small></p>
-                        <p class="card-text"><small>Payment: Pay Later</small></p>
-                        <a class="btn btn-primary btn-sm" href="../includes/cancelReservation.inc.php?resId='.$row["resId"].'" role="button">Cancel Reservation</a>
-                        <a class="btn btn-primary btn-sm" href="#" role="button">Edit Reservation</a>
+                        <p class="card-text"><small>Payment: </small></p>
+                        <a class="btn btn-primary btn-sm" href="../includes/actionReservation.inc.php?action=delete&resId='.$row["resId"].'" role="button">Cancel Reservation</a>
                     </div>
                     </div>
                 </div>
