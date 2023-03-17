@@ -2,14 +2,14 @@
 <html>
 
 <?php
-include '../includes/payment.inc.php';
-$custId = $_SESSION["custUid"];
-$hotelId = $_SESSION["hotelId"];
-$checkIn = $_SESSION["checkInDate"];
-$checkOut = $_SESSION["checkOutDate"];
-$packageId = $_SESSION["packId"] = $_GET["packId"];
-$hotel = new Hotel();
-$package = new Packages();
+    include '../includes/payment.inc.php';
+    $custId = $_SESSION["custUid"];
+    $hotelId = $_SESSION["hotelId"];
+    $checkIn = $_SESSION["checkInDate"];
+    $checkOut = $_SESSION["checkOutDate"];
+    $packageId = $_SESSION["packId"] = $_GET["packId"];
+    $hotel = new Hotel();
+    $package = new Packages();
 ?>
 
 <div class="col d-flex justify-content-center">

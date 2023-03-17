@@ -11,6 +11,6 @@
     $_SESSION["checkOutDate"] = $_GET["checkOutDate"];
 
     $reservation = new Reservation();
-    $reservation->setReservationDetails($_SESSION["location"], $_SESSION["checkInDate"], $_SESSION["checkOutDate"]);
+    $reservation->setSearchDetails($_SESSION["location"], $_SESSION["checkInDate"], $_SESSION["checkOutDate"]);
     $reservation->getHotelDetails();
 ?>
