@@ -31,6 +31,7 @@
                 AND (s.checkInDate <= '$this->checkOutDate' AND s.checkOutDate >= '$this->checkInDate')
             ) OR s.roomId IS NULL
             ";
+
             $stmt = $this->connect()->query($sql);
             if ($stmt->rowCount() > 0) {
                 echo '<div class="title"><h1>Our Available Hotels</h1></div>';
@@ -58,17 +59,18 @@
             $sql = "
             SELECT DISTINCT p.*
             FROM packages p
-            JOIN hotel h ON h.hotelUid = $hotelId
+            JOIN hotel h ON h.hotelUid = p.hotelUid
             JOIN room r ON p.packageId = r.packageId
             LEFT JOIN reservation s ON r.roomId = s.roomId
-            WHERE h.hotelName LIKE '%$this->location%'
+            WHERE h.hotelUid = '$hotelId'
             AND r.roomId NOT IN (
                 SELECT s.roomId 
                 FROM reservation s 
                 WHERE s.roomId = r.roomId 
                 AND (s.checkInDate <= '$checkOutDate' AND s.checkOutDate >= '$checkInDate')
-            ) OR s.roomId IS NULL
+            )
             ;";
+            
             $stmt = $this->connect()->query($sql);
             if ($stmt->rowCount() > 0) {
                 echo '<div class="title"><h1>Available Packages</h1></div>';
