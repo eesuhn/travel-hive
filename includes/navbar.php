@@ -19,7 +19,7 @@ if (session_status() === PHP_SESSION_NONE) {
 if (session_status() == PHP_SESSION_ACTIVE && empty($_SESSION["accountType"])) {
 ?>
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light px-2">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="../index/index.php">
       <img src="../includes/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
       TRAVEL HIVE
     </a>
@@ -34,7 +34,7 @@ if (session_status() == PHP_SESSION_ACTIVE && empty($_SESSION["accountType"])) {
 } else if (session_status() == PHP_SESSION_ACTIVE && ($_SESSION["accountType"] === "customer")) {
 ?>
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light px-2">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="../index/index.php">
       <img src="../includes/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
       TRAVEL HIVE
     </a>
@@ -53,7 +53,7 @@ if (session_status() == PHP_SESSION_ACTIVE && empty($_SESSION["accountType"])) {
 
 ?>
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light px-2">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="../index/index.php">
       <img src="../includes/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
       TRAVEL HIVE
     </a>

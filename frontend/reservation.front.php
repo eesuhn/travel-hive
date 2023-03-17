@@ -6,5 +6,5 @@
     $_SESSION["hotelId"] = $_GET["hotelId"];
 
     $reservation = new Reservation();
-    $reservation->getPackageDetails($_SESSION["hotelId"],$_SESSION["checkInDate"],$_SESSION["checkOutDate"]);
+    $reservation->getPackageDetails($_SESSION["hotelId"], $_SESSION["checkInDate"], $_SESSION["checkOutDate"]);
 ?>

@@ -101,3 +101,24 @@ ALTER TABLE `room`
 ALTER TABLE `room`
     ADD CONSTRAINT `room_ibfk_1` FOREIGN KEY (`packageId`) REFERENCES `packages` (`packageId`),
     ADD CONSTRAINT `room_ibfk_2` FOREIGN KEY (`hotelUid`) REFERENCES `hotel` (`hotelUid`);
+
+
+-- 10:00, 17th Mar 23'
+
+-- Add roomId to reservation table
+ALTER TABLE `reservation`
+    ADD `roomId` int(11) NOT NULL AFTER `custUid`;
+
+-- Add foreign key for table `reservation`
+ALTER TABLE `reservation`
+    ADD CONSTRAINT `reservation_ibfk_4` FOREIGN KEY (`roomId`) REFERENCES `room` (`roomId`);
+
+-- Drop `packageId` and `hotelUid` from reservation table
+-- Drop constraint for `packageId` and `hotelUid` from reservation table
+ALTER TABLE `reservation`
+    DROP FOREIGN KEY `reservation_ibfk_1`,
+    DROP FOREIGN KEY `reservation_ibfk_2`;
+
+ALTER TABLE `reservation`
+    DROP `packageId`,
+    DROP `hotelUid`;
