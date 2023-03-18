@@ -66,12 +66,14 @@
             JOIN room r ON p.packageId = r.packageId
             LEFT JOIN reservation s ON r.roomId = s.roomId
             WHERE h.hotelUid = '$hotelId'
+            AND p.isDeleted = '0'
             AND r.roomId NOT IN (
                 SELECT s.roomId 
                 FROM reservation s 
                 WHERE s.roomId = r.roomId 
                 AND (s.checkInDate <= '$checkOutDate' AND s.checkOutDate >= '$checkInDate')
             )
+            AND r.isDeleted = '0'
             ;";
             
             $stmt = $this->connect()->query($sql);
@@ -89,7 +91,7 @@
                                 '.$row["packageDesc"].'
                                 </small></p>
                                 <form action="../frontend/payment.front.php" method="POST">
-                                    <input type="hidden" name="packageID" value='.$row["packageId"].'>
+                                    <input type="hidden" name="packageId" value='.$row["packageId"].'>
                                     <a class="btn btn-primary btn-sm" href="../frontend/payment.front.php?packId='.$row["packageId"].'" role="button">Book now</a>
                                 </form>
                             </div>
@@ -97,7 +99,7 @@
                     </div>';
                 }
             } else {
-                echo "No packages are available at the moment.";
+                echo "No packages are available at the moment. Consider changing the check in and check out dates.";
             }
         }
         
@@ -122,6 +124,7 @@
                 WHERE s.roomId = r.roomId 
                 AND (s.checkInDate <= '$this->checkOutDate' AND s.checkOutDate >= '$this->checkInDate')
             )
+            AND r.isDeleted = '0'
             LIMIT 1;
             ";
 
@@ -158,5 +161,3 @@
             }
         }
     }
-
-?>

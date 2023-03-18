@@ -2,7 +2,7 @@
 include '../includes/navbar.php';
 include '../includes/packagesH.inc.php';
 
-$packageID = $packages->getPackageID($hotelUid);
+$packageId = $packages->getPackageId($hotelUid);
 ?>
 
 <!DOCTYPE html>
@@ -17,9 +17,9 @@ $packageID = $packages->getPackageID($hotelUid);
 
 <?php
 // update package
-if (is_array($packageID)) {
-    foreach ($packageID as $row) {
-        $id = $row['packageID'];
+if (is_array($packageId)) {
+    foreach ($packageId as $row) {
+        $id = $row['packageId'];
 ?>
 
         <div class="col d-flex justify-content-center">
@@ -49,7 +49,7 @@ if (is_array($packageID)) {
                     </div>
                     <div class="btn-group mr-1">
                         <form action="../includes/packagesH.inc.php" method="POST">
-                            <input type="hidden" name="packageID" value="<?= $id ?>">
+                            <input type="hidden" name="packageId" value="<?= $id ?>">
                             <button type="submit" name="delete" class="btn btn-danger btn-sm">Delete</button>
                         </form>
                     </div>
@@ -84,7 +84,7 @@ if (is_array($packageID)) {
 
                                         </div>
 
-                                        <input type="hidden" name="packageID" value="<?= $id ?>">
+                                        <input type="hidden" name="packageId" value="<?= $id ?>">
                                         <div class="mb-3">
                                             <label for="">Room Number</label>
                                             <input type="text" class="form-control" id="roomNum" name="roomNum" value="">
@@ -127,7 +127,7 @@ if (is_array($packageID)) {
                                                         echo "No room assigned";
                                                     } ?>
                                                 </select>
-                                                <input type="hidden" name="packageID" value="<?= $id ?>">
+                                                <input type="hidden" name="packageId" value="<?= $id ?>">
                                             </form>
                                         </div>
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -154,7 +154,7 @@ if (is_array($packageID)) {
                             <div class="col-lg-12">
                                 <form id="update_package" method="POST" action="../includes/packagesH.inc.php" enctype="multipart/form-data">
                                     <div class="form-row">
-                                        <input type="hidden" name="packageID" value="<?= $id ?>">
+                                        <input type="hidden" name="packageId" value="<?= $id ?>">
                                         <div class="mb-3">
                                             <label for="name">Name</label>
                                             <input type="text" class="form-control" id="name" name="name" value="<?= $packages->showName($id); ?>">
@@ -201,7 +201,7 @@ if (is_array($packageID)) {
                     <div class="col-lg-12">
                         <form id="add_package" method="POST" action="../includes/packagesH.inc.php" enctype="multipart/form-data">
                             <div class="form-row">
-                                <input type="hidden" name="packageID" value="<?= $id ?>">
+                                <input type="hidden" name="packageId" value="<?= $id ?>">
                                 <div class="mb-3">
                                     <label for="name">Name</label>
                                     <input type="text" class="form-control" id="name" name="name" value="">
