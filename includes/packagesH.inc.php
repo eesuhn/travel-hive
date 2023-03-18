@@ -20,7 +20,7 @@
 
     if (isset($_POST['submit'])) {
 
-        $packageID = $_POST['packageID'];
+        $packageId = $_POST['packageId'];
 
         if (isset($_FILES['fileUpload']) && $_FILES['fileUpload']['error'] === UPLOAD_ERR_OK) {
             // delete old image
@@ -50,7 +50,7 @@
             $change = new Packages();
 
             // call method to update hotel details
-            $change ->changeImage($packageID, $newImg);
+            $change ->changeImage($packageId, $newImg);
 
         }
         
@@ -58,9 +58,9 @@
         $packagePrice = $_POST['price'];
         $packageDesc = $_POST['description'];
 
-        $packages->changeName($packageID, $packageName);
-        $packages->changePrice($packageID, $packagePrice);
-        $packages->changeDesc($packageID, $packageDesc);
+        $packages->changeName($packageId, $packageName);
+        $packages->changePrice($packageId, $packagePrice);
+        $packages->changeDesc($packageId, $packageDesc);
 
         echo "
             <script>
@@ -112,9 +112,9 @@
     // delete package
     if (isset($_POST['delete'])) {
 
-        $packageID = $_POST['packageID'];
+        $packageId = $_POST['packageId'];
 
-        $packages->deletePackage($packageID);
+        $packages->deletePackage($packageId);
 
         echo "
             <script>
@@ -126,10 +126,10 @@
     // add rooms
     if (isset($_POST['submitR'])) {
 
-        $packageID = $_POST['packageID'];
+        $packageId = $_POST['packageId'];
         $roomNum = $_POST['roomNum'];
 
-        $room->setRoomDetails($roomNum, $packageID, $hotelUid);
+        $room->setRoomDetails($roomNum, $packageId, $hotelUid);
         $room->registerRoom();
 
         echo "
@@ -141,8 +141,8 @@
     //delete rooms
     if (isset($_POST['deleteR'])) {
         $roomNum = $_POST['roomNum'];
-        $packageID = $_POST['packageID'];
-        $room->deleteRoomNum($roomNum, $packageID);
+        $packageId = $_POST['packageId'];
+        $room->deleteRoomNum($roomNum, $packageId);
 
         echo "
             <script>

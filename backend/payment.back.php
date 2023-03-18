@@ -1,9 +1,9 @@
 <?php
 
-//declare and initialise constant variable BOOKINGFEE to 100.00
-define('BOOKINGFEE',sprintf("%0.2f",100));
 
 class Payment extends Database{
+    //declare and initialise constant variable BOOKINGFEE to 100.00
+    private const BOOKINGFEE = 100;
     private $finalPrice;
     private $payMethod;
     private $payStatus;
@@ -19,7 +19,7 @@ class Payment extends Database{
 
     //display booking fee
     public function getBookingFee(){
-        return BOOKINGFEE;
+        return sprintf("%0.2f", self::BOOKINGFEE);
     }
 
     //calculate subtotal based on the number of nights and price per package
@@ -29,7 +29,7 @@ class Payment extends Database{
 
     //calculate final price to be paid by adding booking fee to subtotal
     public function getFinalPrice($unitPrice){
-        $this->finalPrice = $unitPrice * $this->nights + BOOKINGFEE;
+        $this->finalPrice = $unitPrice * $this->nights + self::BOOKINGFEE;
         return sprintf("%0.2f",$this->finalPrice);
     }
 
