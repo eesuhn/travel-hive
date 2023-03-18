@@ -138,7 +138,7 @@
 
         // create new reservation in database using pdo
         public function registerReservation () {
-            $sql = "INSERT INTO reservation (checkInDate, checkOutDate, custUid, roomId) VALUES (:value1, :value2, :value3, :value4)";
+            $sql = "INSERT INTO reservation (checkInDate, checkOutDate, custUid, roomId, resStatus) VALUES (:value1, :value2, :value3, :value4, :value5)";
 
             $stmt = $this->connect()->prepare($sql);
 
@@ -146,11 +146,13 @@
             $stmt->bindParam(':value2', $value2);
             $stmt->bindParam(':value3', $value3);
             $stmt->bindParam(':value4', $value4);
+            $stmt->bindParam(':value5', $value5);
 
             $value1 = $this->checkInDate;
             $value2 = $this->checkOutDate;
             $value3 = $this->custUid;
             $value4 = $this->roomId;
+            $value5 = "Reserved";
 
             if (!$stmt->execute(array(':value1' => $value1, ':value2' => $value2, ':value3' => $value3, ':value4' => $value4))) {
                 $error = $stmt->errorInfo();
@@ -171,7 +173,7 @@
             if ($stmt->rowCount() > 0) {    
                 echo'
                 <div class="title">
-                <h1>Your Upcoming Reservations</h1>
+                <h1>Your Reservations</h1>
                 </div>
                 ';
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -184,7 +186,7 @@
                         <p class="card-text">'.$row["hotelAdd"].'</p>
                         <p class="card-text"><small>Check-in Date: '.$row["checkInDate"].'<br>Check-out Date: '.$row["checkOutDate"].'</small></p>
                         <p class="card-text"><small>Payment: </small></p>
-                        <a class="btn btn-primary btn-sm" href="../includes/actionReservation.inc.php?action=delete&resId='.$row["resId"].'" role="button">Cancel Reservation</a>
+                        <a class="btn btn-primary btn-sm" href="../includes/cancelReservation.inc.php?action=delete&resId='.$row["resId"].'" role="button">Cancel Reservation</a>
                     </div>
                     </div>
                 </div>
