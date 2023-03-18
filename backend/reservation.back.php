@@ -187,7 +187,7 @@
                         <p class="card-text">'.$row["hotelAdd"].'</p>
                         <p class="card-text"><small>Check-in Date: '.$row["checkInDate"].'<br>Check-out Date: '.$row["checkOutDate"].'</small></p>
                         <p class="card-text"><small>Payment: </small></p>
-                        <a class="btn btn-primary btn-sm" href="../includes/cancelReservation.inc.php?action=delete&resId='.$row["resId"].'" role="button">Cancel Reservation</a>
+                        <a class="btn btn-primary btn-sm" href="../includes/actionReservation.inc.php?action=delete&resId='.$row["resId"].'" role="button">Cancel Reservation</a>
                     </div>
                     </div>
                 </div>
@@ -204,11 +204,60 @@
 
         public function cancelReservation($resId){
             $sql = "DELETE FROM reservation WHERE resId = $resId";
-            if($this->connect()->query($sql)){
+            $this->connect()->query($sql);
+            if ($_SESSION["accountType"]==="customer"){
                 echo "<script>alert('Your reservation have been successfully cancelled.'); window.location.href='../frontend/showReservation.front.php'</script>";
             }else{
-                echo "<script>alert('Your reservation have not been cancelled successfully. Please try again.'); window.location.href='../frontend/showReservation.front.php'</script>";
+                echo "<script>alert('The reservation have been successfully cancelled.'); window.location.href='../frontend/dashboard_hotel.front.php'</script>";
             }
+        }
 
+        public function showHotelReservation($hotelUid){
+            $sql = "
+            SELECT r.resId, p.packageName, r.checkInDate, r.checkOutDate, c.custName, c.custEmail, h.hotelImage
+            FROM reservation r
+            JOIN customer c ON r.custUid = c.custUid
+            JOIN room s ON s.roomId =  r.roomId
+            JOIN packages p ON p.packageId = s.packageId
+            LEFT JOIN hotel h ON p.hotelUid = h.hotelUid
+            WHERE h.hotelUid = $hotelUid;
+            ";
+            $stmt = $this->connect()->query($sql);
+            if ($stmt->rowCount() > 0) {    
+                echo'
+                <div class="row d-flex justify-content-center py-2">
+                    <table class="table" style="width: 100%;">
+                    <thead class="thead">
+                        <tr>
+                        <th scope="col">Package Name</th>
+                        <th scope="col">Check In Date</th>
+                        <th scope="col">Check Out Date</th>
+                        <th scope="col">Reserved by</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                ';
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo '
+                        <tr>
+                        <td>'.$row["packageName"].'</td>
+                        <td>'.$row["checkInDate"].'</td>
+                        <td>'.$row["checkOutDate"].'</td>
+                        <td>'.$row["custName"].'</td>
+                        <td>'.$row["custEmail"].'</td>
+                        <td><a style="text-decoration:none" href="../includes/cancelReservationH.inc.php?id='.$row["resId"].'">Cancel</a></td>
+                        </tr>
+                ';
+                }
+                echo '
+                    </tbody>
+                    </table>
+                </div>
+                ';
+            }else{
+                echo 'No reservation has been found.';
+            }
         }
     }
