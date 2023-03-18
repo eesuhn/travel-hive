@@ -43,7 +43,7 @@
 
         // get all package id based on hotel id, put it in an array
         public function getRoomNum ($packageId) {
-            $sql = "SELECT roomNum FROM room where packageId = '$packageId';";
+            $sql = "SELECT roomNum FROM room WHERE packageId = '$packageId' AND isDeleted = '0';";
 
             $stmt = $this->connect()->prepare($sql);
             $stmt->execute();
@@ -59,7 +59,7 @@
         }
 
         public function deleteRoomNum ($roomNum, $packageId) {
-            $sql = "DELETE FROM room where roomNum = '$roomNum' AND packageId = '$packageId';";
+            $sql = "UPDATE room SET isDeleted = '1' WHERE roomNum = '$roomNum' AND packageId = '$packageId';";
             $stmt = $this->connect()->prepare($sql);
             $stmt->execute();
         }

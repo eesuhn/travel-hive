@@ -54,8 +54,8 @@
         }
 
         // get all package id based on hotel id, put it in an array
-        public function getPackageID ($hotelUid) {
-            $sql = "SELECT packageID FROM packages where hotelUid = '$hotelUid';";
+        public function getPackageId ($hotelUid) {
+            $sql = "SELECT packageId FROM packages where hotelUid = '$hotelUid' AND isDeleted = '0';";
 
             $stmt = $this->connect()->prepare($sql);
             $stmt->execute();
@@ -71,8 +71,8 @@
         }
 
         // display package name based on package id
-        public function showName ($packageID) {
-            $sql = "SELECT * FROM packages where packageID = '$packageID';";
+        public function showName ($packageId) {
+            $sql = "SELECT * FROM packages where packageId = '$packageId';";
             
             $stmt = $this->getConnection()->prepare($sql);
             $stmt->execute();
@@ -87,8 +87,8 @@
         }
 
         // display package price based on package id
-        public function showPrice ($packageID) {
-            $sql = "SELECT * FROM packages where packageID = '$packageID';";
+        public function showPrice ($packageId) {
+            $sql = "SELECT * FROM packages where packageId = '$packageId';";
             
             $stmt = $this->getConnection()->prepare($sql);
             $stmt->execute();
@@ -103,8 +103,8 @@
         }
 
         // display package description based on package id
-        public function showDesc ($packageID) {
-            $sql = "SELECT * FROM packages where packageID = '$packageID';";
+        public function showDesc ($packageId) {
+            $sql = "SELECT * FROM packages where packageId = '$packageId';";
             
             $stmt = $this->getConnection()->prepare($sql);
             $stmt->execute();
@@ -119,8 +119,8 @@
         }
 
         // display package image based on package id
-        public function showImage ($packageID) {
-            $sql = "SELECT * FROM packages where packageID = '$packageID';";
+        public function showImage ($packageId) {
+            $sql = "SELECT * FROM packages where packageId = '$packageId' AND isDeleted = '0';";
             
             $stmt = $this->getConnection()->prepare($sql);
             $stmt->execute();
@@ -135,8 +135,8 @@
         }
 
         // update package name based on package id
-        public function changeName ($packageID, $packageName) {
-            $sql = "UPDATE packages SET packageName = '$packageName' WHERE packageID = '$packageID';";
+        public function changeName ($packageId, $packageName) {
+            $sql = "UPDATE packages SET packageName = '$packageName' WHERE packageId = '$packageId';";
 
             $stmt = $this->getConnection()->prepare($sql);
 
@@ -144,8 +144,8 @@
         }
 
         // update package price based on package id
-        public function changePrice ($packageID, $packagePrice) {
-            $sql = "UPDATE packages SET packagePrice = '$packagePrice' WHERE packageID = '$packageID';";
+        public function changePrice ($packageId, $packagePrice) {
+            $sql = "UPDATE packages SET packagePrice = '$packagePrice' WHERE packageId = '$packageId';";
 
             $stmt = $this->getConnection()->prepare($sql);
 
@@ -153,8 +153,8 @@
         }
 
         // update package description based on package id
-        public function changeDesc ($packageID, $packageDesc) {
-            $sql = "UPDATE packages SET packageDesc = '$packageDesc' WHERE packageID = '$packageID';";
+        public function changeDesc ($packageId, $packageDesc) {
+            $sql = "UPDATE packages SET packageDesc = '$packageDesc' WHERE packageId = '$packageId';";
 
             $stmt = $this->getConnection()->prepare($sql);
 
@@ -162,8 +162,8 @@
         }
 
         // update package image based on package id
-        public function changeImage ($packageID, $packageImage) {
-            $sql = "UPDATE packages SET packageImage = '$packageImage' WHERE packageID = '$packageID';";
+        public function changeImage ($packageId, $packageImage) {
+            $sql = "UPDATE packages SET packageImage = '$packageImage' WHERE packageId = '$packageId';";
 
             $stmt = $this->getConnection()->prepare($sql);
 
@@ -171,22 +171,21 @@
         }
 
         // delete package based on package id
-        public function deletePackage ($packageID) {
+        public function deletePackage ($packageId) {
 
-            $oldImage = $this->showImage($packageID);
+            $oldImage = $this->showImage($packageId);
 
             // unlink the old image if there is any
             unlink("$oldImage");
 
             //delete all rooms in the package
-            $sql = "DELETE FROM room WHERE packageId = '$packageID';";
+            $sql = "UPDATE room SET isDeleted = '1' WHERE packageId = '$packageId'";
             $stmt = $this->getConnection()->prepare($sql);
             $stmt->execute();
 
             //delete package
-            $sql2 = "DELETE FROM packages WHERE packageID = '$packageID';";
+            $sql2 = "UPDATE packages SET isDeleted= '1' WHERE packageId = '$packageId';";
             $stmt2 = $this->getConnection()->prepare($sql2);
             $stmt2->execute();
         }
     }
-?>
