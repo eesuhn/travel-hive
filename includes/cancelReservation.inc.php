@@ -1,9 +1,9 @@
 <?php
-
     include '../backend/connection.back.php';
     include '../backend/reservation.back.php';
 
-    $reservation = new Reservation();
-    $reservation->cancelReservation($_GET["resId"]);
+    $resId = $_GET["id"];
 
+    $res = new Reservation;
+    $res->cancelReservation($resId);
 ?>

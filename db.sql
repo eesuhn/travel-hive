@@ -44,6 +44,13 @@ CREATE TABLE `reservation` (
     `roomId` int(11) NOT NULL
 );
 
+CREATE TABLE `payment` (
+    `refNo` int(11) NOT NULL,
+    `finalPrice` double(10,2) NOT NULL,
+    `payMethod` varchar(255) NOT NULL,
+    `payStatus` varchar(255) NOT NULL
+)
+
 -- Add PRIMARY KEY
 ALTER TABLE `customer`
     ADD PRIMARY KEY (`custUid`);
@@ -60,6 +67,9 @@ ALTER TABLE `room`
 ALTER TABLE `reservation`
     ADD PRIMARY KEY (`resId`);
 
+ALTER TABLE `payment`
+    ADD PRIMARY KEY (`refNo`);
+
 -- Add AUTO_INCREMENT
 ALTER TABLE `customer`
     MODIFY `custUid` int(11) NOT NULL AUTO_INCREMENT;
@@ -75,6 +85,9 @@ ALTER TABLE `room`
 
 ALTER TABLE `reservation`
     MODIFY `resId` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `payment`
+    MODIFY `refNo` int(11) NOT NULL AUTO_INCREMENT;
 
 -- Add FOREIGN KEY
 ALTER TABLE `packages`

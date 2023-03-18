@@ -69,9 +69,6 @@ if (session_status() == PHP_SESSION_ACTIVE && empty($_SESSION["accountType"])) {
         -->
         <a class="nav-item nav-link" href="../frontend/dashboard_hotel.front.php">Dashboard</a>
 
-        <!-- redirect to booking page to book for customers -->
-        <a class="nav-item nav-link" href="../frontend/booking.front.php">Bookings</a>
-
         <a class="nav-item nav-link" href="../includes/logout.inc.php">Logout</a>
       </div>
     </div>
