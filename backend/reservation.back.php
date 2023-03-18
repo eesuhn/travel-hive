@@ -138,7 +138,7 @@
 
         // create new reservation in database using pdo
         public function registerReservation () {
-            $sql = "INSERT INTO reservation (checkInDate, checkOutDate, custUid, roomId, resStatus) VALUES (:value1, :value2, :value3, :value4, :value5)";
+            $sql = "INSERT INTO reservation (checkInDate, checkOutDate, custUid, roomId, resStatus) VALUES (:value1, :value2, :value3, :value4)";
 
             $stmt = $this->connect()->prepare($sql);
 
@@ -146,13 +146,11 @@
             $stmt->bindParam(':value2', $value2);
             $stmt->bindParam(':value3', $value3);
             $stmt->bindParam(':value4', $value4);
-            $stmt->bindParam(':value5', $value5);
 
             $value1 = $this->checkInDate;
             $value2 = $this->checkOutDate;
             $value3 = $this->custUid;
             $value4 = $this->roomId;
-            $value5 = "Reserved";
 
             if (!$stmt->execute(array(':value1' => $value1, ':value2' => $value2, ':value3' => $value3, ':value4' => $value4))) {
                 $error = $stmt->errorInfo();
