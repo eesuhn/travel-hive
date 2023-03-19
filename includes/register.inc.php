@@ -15,7 +15,7 @@
         $gender = $_POST["gender"];
 
         $customer = new Customer();
-        $customer->setCustDetails($name,$email,$pwd,$age,$origin,$gender);
+        $customer->setCustDetails($name, $email, $pwd, $age, $origin, $gender);
         $customer->registerCustomer();
     }
 
@@ -47,7 +47,7 @@
         
         $hotel = new Hotel();
 
-        $hotel->setHotelDetails($hName,$hEmail,$hPwd,$hAdd,$hDesc,$imgPath);
+        $hotel->setHotelDetails($hName, $hEmail, $hPwd, $hAdd, $hDesc, $imgPath);
         $hotel->registerHotel();
     }
 ?>

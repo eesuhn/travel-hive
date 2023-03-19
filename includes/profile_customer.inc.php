@@ -34,7 +34,7 @@
         }
 
         $change = new Customer();
-        $change ->updateCustDetails($custId, $newName,$newEmail,$newPwd,$newAge,$newOrigin,$newGender);
+        $change ->updateCustDetails($custId, $newName, $newEmail, $newPwd, $newAge, $newOrigin, $newGender);
 
         echo 
         "<script>alert('Changed Successfully'); 

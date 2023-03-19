@@ -15,9 +15,11 @@
         }
 
         public function loginCustomer() {
+            $pwd = md5($this->pwd);
+
             $sql = "SELECT * FROM `customer` WHERE `custEmail` = :email AND `custPwd` = :pwd";
             $stmt = $this->connect()->prepare($sql);
-            $stmt->execute(array(':email' => $this->email, ':pwd' => $this->pwd));
+            $stmt->execute(array(':email' => $this->email, ':pwd' => $pwd));
 
             if ($stmt->rowCount()>0){
                 $row=$stmt->fetch(PDO::FETCH_ASSOC);
@@ -41,9 +43,11 @@
         }
 
         public function loginHotel() {
+            $pwd = md5($this->pwd);
+
             $sql = "SELECT * FROM `hotel` WHERE `hotelEmail` = :email AND `hotelPwd` = :pwd";
             $stmt = $this->connect()->prepare($sql);
-            $stmt->execute(array(':email' => $this->email, ':pwd' => $this->pwd));
+            $stmt->execute(array(':email' => $this->email, ':pwd' => $pwd));
 
             if ($stmt->rowCount()>0){
                 $row=$stmt->fetch(PDO::FETCH_ASSOC);
