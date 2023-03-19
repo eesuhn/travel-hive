@@ -69,30 +69,30 @@
 							<div class="form-row">
 								<div class="mb-3">
 									<label for="text">Name</label>
-									<input type="text" class="form-control" id="name" name="name" value="<?= $cust->showName($custId) ?>">
+									<input type="text" class="form-control" id="name" name="name" value="<?= $cust->showName($custId) ?>" required>
 								</div>
 								<div class="mb-3">
 									<label for="email">Email</label>
-									<input type="email" class="form-control" id="email" name="email" value="<?= $cust->showEmail($custId) ?>">
+									<input type="email" class="form-control" id="email" name="email" value="<?= $cust->showEmail($custId) ?>" required>
 								</div>
 							</div>
 							<div class="mb-3">
 								<label for="pwd">Password</label>
-								<input type="password" class="form-control" id="pwd" name="pwd" placeholder="New Password">
+								<input type="password" class="form-control" id="pwd" name="pwd" placeholder="New Password" required>
 							</div>
 							<div class="mb-3">
 								<label for="age">Age</label>
-								<input type="number" class="form-control" id="age" name="age" value="<?= $cust->showAge($custId) ?>">
+								<input type="number" class="form-control" id="age" name="age" value="<?= $cust->showAge($custId) ?>" required>
 							</div>
 							<div class="mb-3">
 								<div class="row">
 									<label>Gender</label>
 									<div class="col-6">
-										<input type="radio" id="male" name="gender" value="M">
+										<input type="radio" id="male" name="gender" value="M" required>
 										<label for="male">Male</label>
 									</div>
 									<div class="col-6">
-										<input type="radio" id="female" name="gender" value="F">
+										<input type="radio" id="female" name="gender" value="F" required>
 										<label for="female">Female</label>
 									</div>
 								</div>
@@ -100,7 +100,7 @@
 									<div class="row">
 										<div class="col-12">
 											<label for="placeOrigin">Place of Origin</label>
-											<input type="placeOrigin" class="form-control" id="origin" name="origin" value="<?= $cust->showOrigin($custId) ?>">
+											<input type="placeOrigin" class="form-control" id="origin" name="origin" value="<?= $cust->showOrigin($custId) ?>" required>
 										</div>
 									</div>
 								</div>

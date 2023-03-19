@@ -18,13 +18,17 @@
                         <div class="col-md-5">
                             <div class="form-group">
                                 <span class="form-label">Check In</span>
-                                <input class="form-control" name="checkInDate" type="date" required>
+                                <input class="form-control" name="checkInDate" type="date" min="<?=date("Y-m-d")?>" required>
                             </div>
                         </div>
                         <div class="col-md-5">
                             <div class="form-group">
                                 <span class="form-label">Check out</span>
-                                <input class="form-control" name="checkOutDate" type="date" required>
+                                <input class="form-control" name="checkOutDate" type="date" min="<?php
+                                    $today = date("Y-m-d");
+                                    $tomorrow = date('Y-m-d', strtotime($today. ' + 1 days'));
+                                    echo $tomorrow;
+                                ?>" required>
                             </div>
                         </div>
                     </div>

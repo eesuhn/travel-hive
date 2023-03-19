@@ -74,27 +74,27 @@
                             <div class="form-row">
                                 <div class="mb-3">
                                     <label for="name">Name</label>
-                                    <input type="text" class="form-control" id="name" name="name" value="<?= $hotel->showName($hotelUid); ?>">
+                                    <input type="text" class="form-control" id="name" name="name" value="<?= $hotel->showName($hotelUid); ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" value="<?= $hotel->showEmail($hotelUid); ?>">
+                                    <input type="email" class="form-control" id="email" name="email" value="<?= $hotel->showEmail($hotelUid); ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="pwd">Password</label>
-                                    <input type="password" class="form-control" id="pwd" name="pwd" placeholder="New Password">
+                                    <input type="password" class="form-control" id="pwd" name="pwd" placeholder="New Password" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="address">Address</label>
-                                    <input type="text" class="form-control" id="address" name="address" value="<?= $hotel->showAdd($hotelUid); ?>">
+                                    <input type="text" class="form-control" id="address" name="address" value="<?= $hotel->showAdd($hotelUid); ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="description">Description</label>
-                                    <input type="text" class="form-control" id="description" name="description" value="<?= $hotel->showDesc($hotelUid); ?>">
+                                    <input type="text" class="form-control" id="description" name="description" value="<?= $hotel->showDesc($hotelUid); ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="input-group-text" for="fileUpload">Upload image</label>
-                                    <input type="file" name="fileUpload" id="fileUpload" class="form-control">
+                                    <input type="file" name="fileUpload" id="fileUpload" class="form-control" required>
                                 </div>
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button class="btn btn-primary" name="submit" id="submit">Save changes</button>

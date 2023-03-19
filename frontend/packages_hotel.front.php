@@ -117,7 +117,7 @@
                                 <form>
                                     <label for="">Room Available: </label>
                                     <select class="form-select" aria-label="Default select example" name="roomNum">
-                                        <option selected>Select the room you want to delete:</option>
+                                        <option value="false" selected>Select the room you want to delete:</option>
                                         <?php
                                             $roomNum = $room->getRoomNum($id);
 
@@ -159,19 +159,19 @@
                                 <input type="hidden" name="packageId" value="<?= $id ?>">
                                 <div class="mb-3">
                                     <label for="name">Name</label>
-                                    <input type="text" class="form-control" id="name" name="name" value="<?= $packages->showName($id); ?>">
+                                    <input type="text" class="form-control" id="name" name="name" value="<?= $packages->showName($id); ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="price">Price</label>
-                                    <input type="number" class="form-control" id="price" name="price" value="<?= $packages->showPrice($id); ?>">
+                                    <input type="number" class="form-control" id="price" name="price" value="<?= $packages->showPrice($id); ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="description">Description</label>
-                                    <textarea class="form-control" id="description" name="description" rows="3" style="resize: none;"><?= $packages->showDesc($id); ?></textarea>
+                                    <textarea class="form-control" id="description" name="description" rows="3" style="resize: none;" required><?= $packages->showDesc($id); ?></textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label class="input-group-text" for="fileUpload">Upload image</label>
-                                    <input type="file" name="fileUpload" id="fileUpload" class="form-control">
+                                    <input type="file" name="fileUpload" id="fileUpload" class="form-control" required>
                                 </div>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button class="btn btn-primary" name="submit" id="submit">Save changes</button>
@@ -206,19 +206,19 @@
                                 <input type="hidden" name="packageId" value="<?= $id ?>">
                                 <div class="mb-3">
                                     <label for="name">Name</label>
-                                        <input type="text" class="form-control" id="name" name="name" value="">
+                                        <input type="text" class="form-control" id="name" name="name" value="" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="price">Price</label>
-                                    <input type="number" class="form-control" id="price" name="price" value="">
+                                    <input type="number" class="form-control" id="price" name="price" value="" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="description">Description</label>
-                                    <textarea class="form-control" id="description" name="description" rows="3" style="resize: none;"></textarea>
+                                    <textarea class="form-control" id="description" name="description" rows="3" style="resize: none;" required></textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label class="input-group-text" for="fileUpload">Upload image</label>
-                                    <input type="file" name="fileUpload" id="fileUpload" class="form-control">
+                                    <input type="file" name="fileUpload" id="fileUpload" class="form-control" required>
                                 </div>
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button class="btn btn-primary" name="submitA" id="submitA">Save changes</button>

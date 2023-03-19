@@ -128,13 +128,22 @@
     if (isset($_POST['deleteR'])) {
         $roomNum = $_POST['roomNum'];
         $packageId = $_POST['packageId'];
-        
-        $room->deleteRoomNum($roomNum, $packageId);
 
-        echo "
-            <script>
-                alert('Deleted Successfully'); 
-                window.location.href='../frontend/packages_hotel.front.php'
-            </script>";
+        if ($roomNum != "false") {
+            $room->deleteRoomNum($roomNum, $packageId);
+
+            echo "
+                <script>
+                    alert('Deleted Successfully'); 
+                    window.location.href='../frontend/packages_hotel.front.php'
+                </script>";
+        } else {
+            echo "
+                <script>
+                    alert('Please select a room number'); 
+                    window.location.href='../frontend/packages_hotel.front.php'
+                </script>";
+        }
+        
     }
 ?>

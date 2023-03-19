@@ -32,7 +32,7 @@
                 FROM reservation s 
                 WHERE s.roomId = r.roomId 
                 AND (s.checkInDate <= '$this->checkOutDate' AND s.checkOutDate >= '$this->checkInDate')
-            ) OR s.roomId IS NULL
+            ) AND s.roomId IS NULL
             ";
 
             $stmt = $this->connect()->query($sql);
@@ -75,8 +75,7 @@
                 FROM reservation s 
                 WHERE s.roomId = r.roomId 
                 AND (s.checkInDate <= '$checkOutDate' AND s.checkOutDate >= '$checkInDate')
-            )
-            AND r.isDeleted = '0'
+            ) AND r.isDeleted = '0'
             ;";
             
             $stmt = $this->connect()->query($sql);
@@ -93,13 +92,17 @@
                                 <p class="card-text"><small>RM'.$row["packagePrice"].'/night</small></p>
 
                                 <p class="card-text"><small class="text-muted">
-                                '.$row["packageDesc"].'
-                                </small></p>
+                                '.$row["packageDesc"].
+                                '</small></p>
+                                    <form action="../frontend/payment.front.php" method="POST">
+                                    <input type="hidden" name="packageId" value='.$row["packageId"].'>';
 
-                                <form action="../frontend/payment.front.php" method="POST">
-                                    <input type="hidden" name="packageId" value='.$row["packageId"].'>
-                                    <a class="btn btn-primary btn-sm" href="../frontend/payment.front.php?packId='.$row["packageId"].'" role="button">Book now</a>
-                                </form>
+                                if ($_SESSION["accountType"] == "customer") {
+                                    echo 
+                                    '<a class="btn btn-primary btn-sm" href="../frontend/payment.front.php?packId='.$row["packageId"].'" role="button">Book now</a>';
+                                }
+                                echo
+                                '</form>
                             </div>
                         </div>
                     </div>';
@@ -248,12 +251,12 @@
                     <table class="table" style="width: 100%;">
                         <thead class="thead">
                             <tr>
-                            <th scope="col">Package Name</th>
-                            <th scope="col">Check In Date</th>
-                            <th scope="col">Check Out Date</th>
-                            <th scope="col">Reserved by</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Action</th>
+                                <th scope="col">Package Name</th>
+                                <th scope="col">Check In Date</th>
+                                <th scope="col">Check Out Date</th>
+                                <th scope="col">Reserved by</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -262,12 +265,12 @@
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo '
                             <tr>
-                            <td>'.$row["packageName"].'</td>
-                            <td>'.$row["checkInDate"].'</td>
-                            <td>'.$row["checkOutDate"].'</td>
-                            <td>'.$row["custName"].'</td>
-                            <td>'.$row["custEmail"].'</td>
-                            <td><a style="text-decoration:none" href="../includes/cancel_reservation.inc.php?id='.$row["resId"].'">Cancel</a></td>
+                                <td>'.$row["packageName"].'</td>
+                                <td>'.$row["checkInDate"].'</td>
+                                <td>'.$row["checkOutDate"].'</td>
+                                <td>'.$row["custName"].'</td>
+                                <td>'.$row["custEmail"].'</td>
+                                <td><a style="text-decoration:none" href="../includes/cancel_reservation.inc.php?id='.$row["resId"].'">Cancel</a></td>
                             </tr>
                 ';
                 }

@@ -20,7 +20,7 @@
         public function setHotelDetails($hName, $hEmail, $hPwd, $hAdd, $hDesc, $imgPath) {
             $this->hName = $hName;
             $this->hEmail = $hEmail;
-            $this->hPwd = $hPwd;
+            $this->hPwd = md5($hPwd);
             $this->hAdd = $hAdd;
             $this->hDesc = $hDesc;
             $this->imgPath = $imgPath;    
@@ -151,6 +151,8 @@
         }
 
         public function changePwd($uid, $newPwd) {
+            $newPwd = md5($newPwd);
+
             $sql = "UPDATE hotel SET hotelPwd = '$newPwd' WHERE hotelUid = '$uid';";
 
             $stmt = $this->connect()->prepare($sql);

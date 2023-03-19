@@ -76,7 +76,7 @@
         public function showName ($packageId) {
             $sql = "SELECT * FROM packages where packageId = '$packageId';";
             
-            $stmt = $this->getConnection()->prepare($sql);
+            $stmt = $this->connect()->prepare($sql);
             $stmt->execute();
 
             if ($stmt->rowCount() > 0) {
@@ -92,7 +92,7 @@
         public function showPrice ($packageId) {
             $sql = "SELECT * FROM packages where packageId = '$packageId';";
             
-            $stmt = $this->getConnection()->prepare($sql);
+            $stmt = $this->connect()->prepare($sql);
             $stmt->execute();
 
             if ($stmt->rowCount() > 0) {
@@ -108,7 +108,7 @@
         public function showDesc ($packageId) {
             $sql = "SELECT * FROM packages where packageId = '$packageId';";
             
-            $stmt = $this->getConnection()->prepare($sql);
+            $stmt = $this->connect()->prepare($sql);
             $stmt->execute();
 
             if ($stmt->rowCount() > 0) {
@@ -124,7 +124,7 @@
         public function showImage ($packageId) {
             $sql = "SELECT * FROM packages where packageId = '$packageId' AND isDeleted = '0';";
             
-            $stmt = $this->getConnection()->prepare($sql);
+            $stmt = $this->connect()->prepare($sql);
             $stmt->execute();
 
             if ($stmt->rowCount() > 0) {
@@ -140,7 +140,7 @@
         public function changeName ($packageId, $packageName) {
             $sql = "UPDATE packages SET packageName = '$packageName' WHERE packageId = '$packageId';";
 
-            $stmt = $this->getConnection()->prepare($sql);
+            $stmt = $this->connect()->prepare($sql);
 
             $stmt->execute();
         }
@@ -148,7 +148,7 @@
         public function changePrice ($packageId, $packagePrice) {
             $sql = "UPDATE packages SET packagePrice = '$packagePrice' WHERE packageId = '$packageId';";
 
-            $stmt = $this->getConnection()->prepare($sql);
+            $stmt = $this->connect()->prepare($sql);
 
             $stmt->execute();
         }
@@ -156,7 +156,7 @@
         public function changeDesc ($packageId, $packageDesc) {
             $sql = "UPDATE packages SET packageDesc = '$packageDesc' WHERE packageId = '$packageId';";
 
-            $stmt = $this->getConnection()->prepare($sql);
+            $stmt = $this->connect()->prepare($sql);
 
             $stmt->execute();
         }
@@ -164,7 +164,7 @@
         public function changeImage ($packageId, $packageImage) {
             $sql = "UPDATE packages SET packageImage = '$packageImage' WHERE packageId = '$packageId';";
 
-            $stmt = $this->getConnection()->prepare($sql);
+            $stmt = $this->connect()->prepare($sql);
 
             $stmt->execute();
         }
@@ -176,11 +176,11 @@
             unlink("$oldImage");
 
             $sql = "UPDATE room SET isDeleted = '1' WHERE packageId = '$packageId'";
-            $stmt = $this->getConnection()->prepare($sql);
+            $stmt = $this->connect()->prepare($sql);
             $stmt->execute();
 
             $sql2 = "UPDATE packages SET isDeleted= '1' WHERE packageId = '$packageId';";
-            $stmt2 = $this->getConnection()->prepare($sql2);
+            $stmt2 = $this->connect()->prepare($sql2);
             $stmt2->execute();
         }
     }
