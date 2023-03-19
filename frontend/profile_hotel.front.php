@@ -82,7 +82,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="pwd">Password</label>
-                                    <input type="password" class="form-control" id="pwd" name="pwd" placeholder="New Password" required>
+                                    <input type="password" class="form-control" id="pwd" name="pwd" placeholder="New Password">
                                 </div>
                                 <div class="mb-3">
                                     <label for="address">Address</label>
@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="input-group-text" for="fileUpload">Upload image</label>
-                                    <input type="file" name="fileUpload" id="fileUpload" class="form-control" required>
+                                    <input type="file" name="fileUpload" id="fileUpload" class="form-control">
                                 </div>
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button class="btn btn-primary" name="submit" id="submit">Save changes</button>

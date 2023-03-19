@@ -78,7 +78,7 @@
 							</div>
 							<div class="mb-3">
 								<label for="pwd">Password</label>
-								<input type="password" class="form-control" id="pwd" name="pwd" placeholder="New Password" required>
+								<input type="password" class="form-control" id="pwd" name="pwd" placeholder="New Password">
 							</div>
 							<div class="mb-3">
 								<label for="age">Age</label>
@@ -88,11 +88,23 @@
 								<div class="row">
 									<label>Gender</label>
 									<div class="col-6">
-										<input type="radio" id="male" name="gender" value="M" required>
+										<input type="radio" id="male" name="gender" value="M"
+										<?php
+											if ($cust->showGender($custId) == "Male") {
+												echo "checked";
+											}
+										?>
+										>
 										<label for="male">Male</label>
 									</div>
 									<div class="col-6">
-										<input type="radio" id="female" name="gender" value="F" required>
+										<input type="radio" id="female" name="gender" value="F"
+										<?php
+											if ($cust->showGender($custId) == "Female") {
+												echo "checked";
+											}
+										?>
+										>
 										<label for="female">Female</label>
 									</div>
 								</div>

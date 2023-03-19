@@ -27,13 +27,14 @@
             JOIN room r ON p.packageId = r.packageId
             LEFT JOIN reservation s ON r.roomId = s.roomId
             WHERE CONCAT(h.hotelName, h.hotelAdd) LIKE '%$this->location%'
+            AND p.isDeleted = '0'
             AND r.roomId NOT IN (
                 SELECT s.roomId 
                 FROM reservation s 
                 WHERE s.roomId = r.roomId 
                 AND (s.checkInDate <= '$this->checkOutDate' AND s.checkOutDate >= '$this->checkInDate')
-            ) AND s.roomId IS NULL
-            ";
+            ) AND r.isDeleted = '0'
+            ;";
 
             $stmt = $this->connect()->query($sql);
             if ($stmt->rowCount() > 0) {
