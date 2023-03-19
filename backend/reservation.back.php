@@ -32,7 +32,7 @@
                 FROM reservation s 
                 WHERE s.roomId = r.roomId 
                 AND (s.checkInDate <= '$this->checkOutDate' AND s.checkOutDate >= '$this->checkInDate')
-            ) OR s.roomId IS NULL
+            ) AND s.roomId IS NULL
             ";
 
             $stmt = $this->connect()->query($sql);
@@ -75,8 +75,7 @@
                 FROM reservation s 
                 WHERE s.roomId = r.roomId 
                 AND (s.checkInDate <= '$checkOutDate' AND s.checkOutDate >= '$checkInDate')
-            )
-            AND r.isDeleted = '0'
+            ) AND r.isDeleted = '0'
             ;";
             
             $stmt = $this->connect()->query($sql);
