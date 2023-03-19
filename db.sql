@@ -49,7 +49,7 @@ CREATE TABLE `payment` (
     `finalPrice` double(10,2) NOT NULL,
     `payMethod` varchar(255) NOT NULL,
     `payStatus` varchar(255) NOT NULL
-)
+);
 
 -- Add PRIMARY KEY
 ALTER TABLE `customer`
