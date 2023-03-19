@@ -1,6 +1,6 @@
 <?php
     include '../includes/navbar.php';
-    include '../includes/packagesH.inc.php';
+    include '../includes/packages_hotel.inc.php';
 
     $packageId = $packages->getPackageId($hotelUid);
 ?>
@@ -46,7 +46,7 @@
                     <a href="#updatePackage" data-bs-toggle="modal" data-bs-target="#updatePackage<?= $id ?>" class="btn btn-primary btn-sm">Update</a>
                 </div>
                 <div class="btn-group mr-1">
-                    <form action="../includes/packagesH.inc.php" method="POST">
+                    <form action="../includes/packages_hotel.inc.php" method="POST">
                         <input type="hidden" name="packageId" value="<?= $id ?>">
                         <button type="submit" name="delete" class="btn btn-danger btn-sm">Delete</button>
                     </form>
@@ -65,7 +65,7 @@
                 <div class="modal-body">
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-12">
-                            <form id="add_rooms" method="POST" action="../includes/packagesH.inc.php" enctype="multipart/form-data">
+                            <form id="add_rooms" method="POST" action="../includes/packages_hotel.inc.php" enctype="multipart/form-data">
                             <div class="form-row">
                                 <div class="mb-3">
                                     <label for="">Room Available: </label>
@@ -111,7 +111,7 @@
                 <div class="modal-body">
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-12">
-                            <form id="delete_rooms" method="POST" action="../includes/packagesH.inc.php" enctype="multipart/form-data">
+                            <form id="delete_rooms" method="POST" action="../includes/packages_hotel.inc.php" enctype="multipart/form-data">
                             <div class="form-row">
                                 <div class="mb-3">
                                 <form>
@@ -153,7 +153,7 @@
                 <div class="modal-body">
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-12">
-                        <form id="update_package" method="POST" action="../includes/packagesH.inc.php" enctype="multipart/form-data">
+                        <form id="update_package" method="POST" action="../includes/packages_hotel.inc.php" enctype="multipart/form-data">
                             <div class="form-row">
                                 <input type="hidden" name="packageId" value="<?= $id ?>">
                                 <div class="mb-3">
@@ -198,7 +198,7 @@
                 <div class="modal-body">
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-12">
-                            <form id="add_package" method="POST" action="../includes/packagesH.inc.php" enctype="multipart/form-data">
+                            <form id="add_package" method="POST" action="../includes/packages_hotel.inc.php" enctype="multipart/form-data">
                             <div class="form-row">
                                 <input type="hidden" name="packageId" value="<?= $id ?>">
                                 <div class="mb-3">

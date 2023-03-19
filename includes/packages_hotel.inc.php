@@ -57,7 +57,7 @@
         echo "
             <script>
                 alert('Changed Successfully'); 
-                window.location.href='../frontend/packagesH.front.php'
+                window.location.href='../frontend/packages_hotel.front.php'
             </script>";
     }
 
@@ -93,7 +93,7 @@
         echo "
             <script>
                 alert('Added Successfully'); 
-                window.location.href='../frontend/packagesH.front.php'
+                window.location.href='../frontend/packages_hotel.front.php'
             </script>";
     }
 
@@ -106,7 +106,7 @@
         echo "
             <script>
                 alert('Deleted Successfully'); 
-                window.location.href='../frontend/packagesH.front.php'
+                window.location.href='../frontend/packages_hotel.front.php'
             </script>";
     }
 
@@ -121,7 +121,7 @@
         echo "
             <script>
                 alert('Added Successfully'); 
-                window.location.href='../frontend/packagesH.front.php'
+                window.location.href='../frontend/packages_hotel.front.php'
             </script>";
     }
 
@@ -134,7 +134,7 @@
         echo "
             <script>
                 alert('Deleted Successfully'); 
-                window.location.href='../frontend/packagesH.front.php'
+                window.location.href='../frontend/packages_hotel.front.php'
             </script>";
     }
 ?>

@@ -31,7 +31,7 @@
 
             echo 
             "<script>alert('Thank You For Your Payment!');
-            window.location.href='../frontend/paidOnline.front.php'</script>";
+            window.location.href='../frontend/paid_online.front.php'</script>";
 
         } else if ($_POST["submit"]=="pay-later") {
             $payment->payLater($price);
@@ -42,7 +42,7 @@
 
             echo 
             "<script>alert('Please Pay at the Hotel Counter Before Check-In.');
-            window.location.href='../frontend/payLater.front.php'</script>";
+            window.location.href='../frontend/pay_later.front.php'</script>";
         }
     }
 ?>

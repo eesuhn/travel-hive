@@ -49,7 +49,7 @@
                 ':value4' => $value4, ':value5' => $value5))) {
 
                 echo "<script>alert('Package successfully created'); 
-                window.location.href='../frontend/packagesH.front.php'</script>";
+                window.location.href='../frontend/packages_hotel.front.php'</script>";
 
             } else {
                 $error = $stmt->errorInfo();

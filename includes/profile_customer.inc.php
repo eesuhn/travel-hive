@@ -38,7 +38,7 @@
 
         echo 
         "<script>alert('Changed Successfully'); 
-        window.location.href='../frontend/profileC.front.php'</script>";
+        window.location.href='../frontend/profile_customer.front.php'</script>";
     }
 
     if ($cust->showGender($custId) == 'M') {

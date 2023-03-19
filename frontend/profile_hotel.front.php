@@ -1,6 +1,6 @@
 <?php
     include '../includes/navbar.php';
-    include '../includes/profileH.inc.php';
+    include '../includes/profile_hotel.inc.php';
 
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
@@ -70,7 +70,7 @@
                 <div class="modal-body">
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-12">
-                            <form id="update_hotel" method="POST" action="../includes/profileH.inc.php" enctype="multipart/form-data">
+                            <form id="update_hotel" method="POST" action="../includes/profile_hotel.inc.php" enctype="multipart/form-data">
                             <div class="form-row">
                                 <div class="mb-3">
                                     <label for="name">Name</label>

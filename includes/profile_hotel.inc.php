@@ -63,7 +63,7 @@
         echo "
             <script>
                 alert('Changed Successfully'); 
-                window.location.href='../frontend/profileH.front.php'
+                window.location.href='../frontend/profile_hotel.front.php'
             </script>";
     }
 ?>

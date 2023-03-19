@@ -1,6 +1,6 @@
 <?php
     include '../includes/navbar.php';  
-    include '../includes/registerform.inc.php'
+    include '../includes/register_form.inc.php'
 ?>
 
 <html>

@@ -221,7 +221,7 @@
             if ($_SESSION["accountType"] === "customer") {
                 echo 
                 "<script>alert('Your reservation have been successfully cancelled.'); 
-                window.location.href='../frontend/showReservation.front.php'</script>";
+                window.location.href='../frontend/show_reservation.front.php'</script>";
 
             } else {
                 echo 
@@ -267,7 +267,7 @@
                             <td>'.$row["checkOutDate"].'</td>
                             <td>'.$row["custName"].'</td>
                             <td>'.$row["custEmail"].'</td>
-                            <td><a style="text-decoration:none" href="../includes/cancelReservation.inc.php?id='.$row["resId"].'">Cancel</a></td>
+                            <td><a style="text-decoration:none" href="../includes/cancel_reservation.inc.php?id='.$row["resId"].'">Cancel</a></td>
                             </tr>
                 ';
                 }

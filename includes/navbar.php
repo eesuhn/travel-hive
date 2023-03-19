@@ -47,8 +47,8 @@
 			<div class="navbar">
 				<div class="navbar-nav">
 					<a class="nav-item nav-link" href="../index/index.php">Home</a>
-					<a class="nav-item nav-link" href="../frontend/showReservation.front.php">Reservations</a>
-					<a class="nav-item nav-link" href="../frontend/profileC.front.php">Profile</a>
+					<a class="nav-item nav-link" href="../frontend/show_reservation.front.php">Reservations</a>
+					<a class="nav-item nav-link" href="../frontend/profile_customer.front.php">Profile</a>
 					<a class="nav-item nav-link" href="../includes/logout.inc.php">Logout</a>
 				</div>
 			</div>

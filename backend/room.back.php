@@ -37,7 +37,7 @@
 
                 echo 
                 "<script>alert('Room successfully created'); 
-                window.location.href='../frontend/packagesH.front.php'</script>";
+                window.location.href='../frontend/packages_hotel.front.php'</script>";
 
             } else {
                 $error = $stmt->errorInfo();

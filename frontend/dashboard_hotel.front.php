@@ -1,6 +1,6 @@
 <?php
 	include '../includes/navbar.php';
-	include '../includes/profileH.inc.php';
+	include '../includes/profile_hotel.inc.php';
 	include '../backend/reservation.back.php';
 	$hotelUid = $_SESSION["hotelUid"];
 	$hotel = new Hotel();
@@ -29,7 +29,7 @@
 				<h5 class="card-header">Update Profile</h5>
 				<div class="card-body">
 				<p class="card-text">Update your hotel profile to be displayed</p>
-					<a href="profileH.front.php" class="btn btn-primary">Update Profile</a>
+					<a href="profile_hotel.front.php" class="btn btn-primary">Update Profile</a>
 				</div>
 			</div>
 		</div>
@@ -41,7 +41,7 @@
 				<h5 class="card-header">View Packages</h5>
 				<div class="card-body">
 					<p class="card-text">Add new packages or edit existing packages</p>
-					<a href="packagesH.front.php" class="btn btn-primary">Update Packages</a>
+					<a href="packages_hotel.front.php" class="btn btn-primary">Update Packages</a>
 				</div>
 			</div>
 		</div>

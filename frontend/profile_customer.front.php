@@ -1,6 +1,6 @@
 <?php
 	include '../includes/navbar.php';
-	include '../includes/profileC.inc.php';
+	include '../includes/profile_customer.inc.php';
 
 	if (session_status() == PHP_SESSION_NONE) {
 		session_start();
@@ -65,7 +65,7 @@
 				<div class="modal-body">
 					<div class="row d-flex justify-content-center">
 						<div class="col-lg-8">
-							<form id="updateProfile" method="POST" action="../includes/profileC.inc.php">
+							<form id="updateProfile" method="POST" action="../includes/profile_customer.inc.php">
 							<div class="form-row">
 								<div class="mb-3">
 									<label for="text">Name</label>
