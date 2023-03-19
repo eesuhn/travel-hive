@@ -1,6 +1,6 @@
 <?php
 
-    class Reservation extends Database {
+    class Reservation extends Database{
         private $location;
         private $checkInDate;
         private $checkOutDate;
@@ -13,13 +13,13 @@
             $this->checkOutDate = "";
         }
         
-        public function setSearchDetails($location, $checkInDate, $checkOutDate){
+        public function setSearchDetails($location, $checkInDate, $checkOutDate) {
             $this->location = "$location";
             $this->checkInDate = "$checkInDate";
             $this->checkOutDate = "$checkOutDate";
         }
 
-        public function getHotelDetails(){
+        public function getHotelDetails() {
             $sql = "
             SELECT DISTINCT h.*
             FROM hotel h
@@ -38,6 +38,7 @@
             $stmt = $this->connect()->query($sql);
             if ($stmt->rowCount() > 0) {
                 echo '<div class="title"><h1>Our Available Hotels</h1></div>';
+
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     echo '
                     <div class="col d-flex justify-content-center">
@@ -54,11 +55,13 @@
                     ';
                 }
             } else {
-                echo "<script>alert('No hotels were found for the given location or date. Please try again.'); window.location.href='../index/index.php'</script>";
+                echo 
+                "<script>alert('No hotels were found for the given location or date. Please try again.'); 
+                window.location.href='../index/index.php'</script>";
             }
         }
         
-        public function getPackageDetails($hotelId,$checkInDate,$checkOutDate){
+        public function getPackageDetails($hotelId, $checkInDate, $checkOutDate) {
             $sql = "
             SELECT DISTINCT p.*
             FROM packages p
@@ -79,6 +82,7 @@
             $stmt = $this->connect()->query($sql);
             if ($stmt->rowCount() > 0) {
                 echo '<div class="title"><h1>Available Packages</h1></div>';
+
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     echo '
                     <div class="col d-flex justify-content-center">
@@ -101,19 +105,17 @@
                     </div>';
                 }
             } else {
-                echo "No packages are available at the moment. Consider changing the check in and check out dates.";
+                echo 
+                "No packages are available at the moment. Consider changing the check in and check out dates.";
             }
         }
         
-        public function setReservationDetails($checkInDate, $checkOutDate, $custUid, $packageId){
+        public function setReservationDetails($checkInDate, $checkOutDate, $custUid, $packageId) {
 
             $this->checkInDate = "$checkInDate";
             $this->checkOutDate = "$checkOutDate";
             $this->custUid = "$custUid";
 
-            /*
-            based on packageId, obtain one roomId that is available for the given date range and assign it to $this->roomId
-            */
             $sql = "
             SELECT DISTINCT r.roomId
             FROM room r
@@ -141,9 +143,10 @@
             }
         }
 
-        // create new reservation in database using pdo
-        public function registerReservation () {
-            $sql = "INSERT INTO reservation (checkInDate, checkOutDate, custUid, roomId) VALUES (:value1, :value2, :value3, :value4)";
+        public function registerReservation() {
+            $sql = 
+            "INSERT INTO reservation (checkInDate, checkOutDate, custUid, roomId) 
+            VALUES (:value1, :value2, :value3, :value4)";
 
             $stmt = $this->connect()->prepare($sql);
 
@@ -157,13 +160,14 @@
             $value3 = $this->custUid;
             $value4 = $this->roomId;
 
-            if (!$stmt->execute(array(':value1' => $value1, ':value2' => $value2, ':value3' => $value3, ':value4' => $value4))) {
+            if (!$stmt->execute(
+                array(':value1' => $value1, ':value2' => $value2, ':value3' => $value3, ':value4' => $value4))) {
                 $error = $stmt->errorInfo();
                 echo "Error: " . $error[2];
             }
         }
 
-        public function showReservations($custUid){
+        public function showReservations($custUid) {
             $sql = "
             SELECT r.resId, r.checkInDate, r.checkOutDate, h.hotelName, h.hotelAdd, h.hotelImage, p.packageName
             FROM reservation r 
@@ -181,35 +185,35 @@
                 <h1>Your Reservations</h1>
                 </div>
                 ';
+
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo '
                 <div class="col d-flex justify-content-center">
                     <div class="card mb-3" style="width: 700px; margin-top:20px">
                         <img class="card-img-top" src='.$row["hotelImage"].' alt="Card image cap">
                         <div class="card-body">
-                        <h5 class="card-title">'.$row["packageName"].', '.$row["hotelName"].'</h5>
-                        <p class="card-text">'.$row["hotelAdd"].'</p>
-                        <p class="card-text"><small>Check-in Date: '.$row["checkInDate"].'<br>Check-out Date: '.$row["checkOutDate"].'</small></p>
-                        <a class="btn btn-primary btn-sm" href="../includes/actionReservation.inc.php?action=delete&resId='.$row["resId"].'" role="button">Cancel Reservation</a>
-                    </div>
+                            <h5 class="card-title">'.$row["packageName"].', '.$row["hotelName"].'</h5>
+                            <p class="card-text">'.$row["hotelAdd"].'</p>
+                            <p class="card-text"><small>Check-in Date: '.$row["checkInDate"].'<br>Check-out Date: '.$row["checkOutDate"].'</small></p>
+                            <a class="btn btn-primary btn-sm" href="../includes/actionReservation.inc.php?action=delete&resId='.$row["resId"].'" role="button">Cancel Reservation</a>
+                        </div>
                     </div>
                 </div>
                 ';
                 }
             } else {
-                echo '
-                <div class="title">
-                <h1>No Reservations Found</h1>
+                echo 
+                '<div class="title">
+                    <h1>No Reservations Found</h1>
                 </div>
                 ';
             }
         }
 
-        public function cancelReservation($resId){
+        public function cancelReservation($resId) {
             $sql = "DELETE FROM reservation WHERE resId = $resId";
             $this->connect()->query($sql);
 
-            // start session if not started
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();
             }
@@ -226,7 +230,7 @@
             }
         }
 
-        public function showHotelReservation($hotelUid){
+        public function showHotelReservation($hotelUid) {
             $sql = "
             SELECT r.resId, p.packageName, r.checkInDate, r.checkOutDate, c.custName, c.custEmail, h.hotelImage
             FROM reservation r
@@ -236,41 +240,43 @@
             LEFT JOIN hotel h ON p.hotelUid = h.hotelUid
             WHERE h.hotelUid = $hotelUid;
             ";
+
             $stmt = $this->connect()->query($sql);
             if ($stmt->rowCount() > 0) {    
                 echo'
                 <div class="row d-flex justify-content-center py-2">
                     <table class="table" style="width: 100%;">
-                    <thead class="thead">
-                        <tr>
-                        <th scope="col">Package Name</th>
-                        <th scope="col">Check In Date</th>
-                        <th scope="col">Check Out Date</th>
-                        <th scope="col">Reserved by</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                        <thead class="thead">
+                            <tr>
+                            <th scope="col">Package Name</th>
+                            <th scope="col">Check In Date</th>
+                            <th scope="col">Check Out Date</th>
+                            <th scope="col">Reserved by</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                 ';
+
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo '
-                        <tr>
-                        <td>'.$row["packageName"].'</td>
-                        <td>'.$row["checkInDate"].'</td>
-                        <td>'.$row["checkOutDate"].'</td>
-                        <td>'.$row["custName"].'</td>
-                        <td>'.$row["custEmail"].'</td>
-                        <td><a style="text-decoration:none" href="../includes/cancelReservation.inc.php?id='.$row["resId"].'">Cancel</a></td>
-                        </tr>
+                            <tr>
+                            <td>'.$row["packageName"].'</td>
+                            <td>'.$row["checkInDate"].'</td>
+                            <td>'.$row["checkOutDate"].'</td>
+                            <td>'.$row["custName"].'</td>
+                            <td>'.$row["custEmail"].'</td>
+                            <td><a style="text-decoration:none" href="../includes/cancelReservation.inc.php?id='.$row["resId"].'">Cancel</a></td>
+                            </tr>
                 ';
                 }
                 echo '
-                    </tbody>
+                        </tbody>
                     </table>
                 </div>
                 ';
-            }else{
+            } else {
                 echo 'No reservation has been found.';
             }
         }

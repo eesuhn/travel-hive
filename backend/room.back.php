@@ -5,23 +5,22 @@
         private $packageId;
         private $hotelUid;
 
-        // constructor with empty parameters
         public function __construct() {
             $this->roomNum = "";
             $this->packageId = "";
             $this->hotelUid = "";
         }
 
-        // setter for every attributes
         public function setRoomDetails($roomNum, $packageId, $hotelUid) {
             $this->roomNum = $roomNum;
             $this->packageId = $packageId;
             $this->hotelUid = $hotelUid;
         }
 
-        // create new room in database
         public function registerRoom () {
-            $sql = "INSERT INTO room (roomNum, packageId, hotelUid) VALUES (:value1, :value2, :value3)";
+            $sql = 
+            "INSERT INTO room (roomNum, packageId, hotelUid) 
+            VALUES (:value1, :value2, :value3)";
 
             $stmt = $this->connect()->prepare($sql);
 
@@ -33,15 +32,19 @@
             $value2 = $this->packageId;
             $value3 = $this->hotelUid;
 
-            if ($stmt->execute(array(':value1' => $value1, ':value2' => $value2, ':value3' => $value3))) {
-                echo "<script>alert('Room successfully created'); window.location.href='../frontend/packagesH.front.php'</script>";
+            if ($stmt->execute(
+                array(':value1' => $value1, ':value2' => $value2, ':value3' => $value3))) {
+
+                echo 
+                "<script>alert('Room successfully created'); 
+                window.location.href='../frontend/packagesH.front.php'</script>";
+
             } else {
                 $error = $stmt->errorInfo();
                 echo "Error: " . $error[2];
             }
         }
 
-        // get all package id based on hotel id, put it in an array
         public function getRoomNum ($packageId) {
             $sql = "SELECT roomNum FROM room WHERE packageId = '$packageId' AND isDeleted = '0';";
 
@@ -60,6 +63,7 @@
 
         public function deleteRoomNum ($roomNum, $packageId) {
             $sql = "UPDATE room SET isDeleted = '1' WHERE roomNum = '$roomNum' AND packageId = '$packageId';";
+            
             $stmt = $this->connect()->prepare($sql);
             $stmt->execute();
         }
