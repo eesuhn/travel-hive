@@ -25,25 +25,29 @@
 
 							<form id="login" method="POST" action="../includes/login.inc.php">
 							<div class="row">
-								<select class="form-select" aria-label="form-select" name="accType">
+								<center>
+								<select class="form-select" aria-label="form-select" name="accType" style="width: 90%;">
 									<option selected="customer" value="customer">Customer</option>
 									<option value="hotel">Hotel</option>
 								</select>
 								<label class="form-label" for="accType" name="accType">Select Account Type</label>
 
-								<div class="form-outline mb-2 py-5">
+								<div class="form-outline mb-2 py-5" style="width: 90%;">
 									<input type="email" name="email" id="email" class="form-control" />
 									<label class="form-label" for="email" name="email">Email address</label>
 								</div>
 
-								<div class="form-outline mb-2">
+								<div class="form-outline mb-2" style="width: 90%;">
 									<input type="password" name="pwd" id="pwd" class="form-control"/>
 									<label class="form-label" for="pwd" name="pwd">Password</label>
 								</div>
 
-								<a href="#register" data-bs-target="#register" data-bs-toggle="modal" style="text-decoration:none; margin:5px;">Don't have an account?</a>
+								<div style="margin-bottom: 10px;">
+									<a href="#register" data-bs-target="#register" data-bs-toggle="modal" style="text-decoration:none;">Don't have an account?</a>
+								</div>
 
-								<center><button type="submit" name="submit" class="btn btn-primary" style="width: 40%;">Login</button></center>
+								<button type="submit" name="submit" class="btn btn-primary" style="width: 40%;">Login</button>
+								</center>
 							</form>
 							</div>
 						</div>
