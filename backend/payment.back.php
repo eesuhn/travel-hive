@@ -49,7 +49,7 @@
             return $this->nights;
         }
 
-        public function savePaymentDetails($custUid){
+        public function savePaymentDetails(){
             $sql = 
             "INSERT INTO payment (finalPrice, payMethod, payStatus) 
             VALUES (:value1, :value2, :value3)";

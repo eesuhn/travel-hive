@@ -230,7 +230,7 @@
             }
         }
 
-        public function showHotelReservation($hotelUid) {
+        public function showReservationHotel($hotelUid) {
             $sql = "
             SELECT r.resId, p.packageName, r.checkInDate, r.checkOutDate, c.custName, c.custEmail, h.hotelImage
             FROM reservation r

@@ -11,7 +11,7 @@
         $login->setLoginDetails($email,$pwd);
 
         if ($_POST["accType"]==="customer") {
-            $login->loginUser();
+            $login->loginCustomer();
             
         } else {
             $login->loginHotel();

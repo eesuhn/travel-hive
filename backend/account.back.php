@@ -14,7 +14,7 @@
             $this->pwd = $pwd;
         }
 
-        public function loginUser() {
+        public function loginCustomer() {
             $sql = "SELECT * FROM `customer` WHERE `custEmail` = :email AND `custPwd` = :pwd";
             $stmt = $this->connect()->prepare($sql);
             $stmt->execute(array(':email' => $this->email, ':pwd' => $this->pwd));

@@ -24,7 +24,7 @@
 
         if($_POST["submit"]=="pay-now") {
             $payment->payNow($price);
-            $payment -> savePaymentDetails($custUid);
+            $payment -> savePaymentDetails();
 
             $reservation->setReservationDetails($checkIn, $checkOut, $custUid, $packageId);
             $reservation->registerReservation();
@@ -35,7 +35,7 @@
 
         } else if ($_POST["submit"]=="pay-later") {
             $payment->payLater($price);
-            $payment -> savePaymentDetails($custUid);
+            $payment -> savePaymentDetails();
 
             $reservation->setReservationDetails($checkIn, $checkOut, $custUid, $packageId);
             $reservation->registerReservation();

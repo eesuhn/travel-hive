@@ -68,7 +68,7 @@
 				</div>
 				<div class="modal-body">
 					<?php
-					$res->showHotelReservation($hotelUid);
+					$res->showReservationHotel($hotelUid);
 					?>
 				</div>
 			</div>
