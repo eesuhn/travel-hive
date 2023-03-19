@@ -8,7 +8,6 @@
         protected $gender;
 
         public function __construct() {
-            parent::__construct();
             $this->name = "";
             parent::__construct();
             $this->age = "";
