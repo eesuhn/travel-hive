@@ -49,7 +49,8 @@ CREATE TABLE `payment` (
     `finalPrice` double(10,2) NOT NULL,
     `payMethod` varchar(255) NOT NULL,
     `payStatus` varchar(255) NOT NULL
-)
+);
+
 
 -- Add PRIMARY KEY
 ALTER TABLE `customer`
@@ -70,6 +71,7 @@ ALTER TABLE `reservation`
 ALTER TABLE `payment`
     ADD PRIMARY KEY (`refNo`);
 
+
 -- Add AUTO_INCREMENT
 ALTER TABLE `customer`
     MODIFY `custUid` int(11) NOT NULL AUTO_INCREMENT;
@@ -88,6 +90,7 @@ ALTER TABLE `reservation`
 
 ALTER TABLE `payment`
     MODIFY `refNo` int(11) NOT NULL AUTO_INCREMENT;
+
 
 -- Add FOREIGN KEY
 ALTER TABLE `packages`

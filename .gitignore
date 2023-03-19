@@ -1,8 +1,9 @@
-# connection to database
+# database connection file
 backend/connection.back.php
 
-# outlier files (not used)
-.DS_Store
-
+# ignore all files in the uploads folder
 uploads/*
 !uploads/.gitkeep
+
+# outlier files
+.DS_Store
