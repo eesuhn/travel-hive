@@ -247,12 +247,12 @@
                     <table class="table" style="width: 100%;">
                         <thead class="thead">
                             <tr>
-                            <th scope="col">Package Name</th>
-                            <th scope="col">Check In Date</th>
-                            <th scope="col">Check Out Date</th>
-                            <th scope="col">Reserved by</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Action</th>
+                                <th scope="col">Package Name</th>
+                                <th scope="col">Check In Date</th>
+                                <th scope="col">Check Out Date</th>
+                                <th scope="col">Reserved by</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -261,12 +261,12 @@
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo '
                             <tr>
-                            <td>'.$row["packageName"].'</td>
-                            <td>'.$row["checkInDate"].'</td>
-                            <td>'.$row["checkOutDate"].'</td>
-                            <td>'.$row["custName"].'</td>
-                            <td>'.$row["custEmail"].'</td>
-                            <td><a style="text-decoration:none" href="../includes/cancel_reservation.inc.php?id='.$row["resId"].'">Cancel</a></td>
+                                <td>'.$row["packageName"].'</td>
+                                <td>'.$row["checkInDate"].'</td>
+                                <td>'.$row["checkOutDate"].'</td>
+                                <td>'.$row["custName"].'</td>
+                                <td>'.$row["custEmail"].'</td>
+                                <td><a style="text-decoration:none" href="../includes/cancel_reservation.inc.php?id='.$row["resId"].'">Cancel</a></td>
                             </tr>
                 ';
                 }

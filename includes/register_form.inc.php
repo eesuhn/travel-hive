@@ -28,39 +28,39 @@
 				<div class="form-row">
 					<div class="mb-3">
 						<label for="text">Name</label>
-						<input type="text" class="form-control" id="name" name="name" placeholder="Name">
+						<input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
 						<div id="nameHelp" class="form-text">This is how we will be announcing you on our page.</div>
 					</div>
 					<div class="mb-3">
 						<label for="email">Email</label>
-						<input type="email" class="form-control" id="email" name="email" placeholder="Email">
+						<input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
 						<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
 					</div>
 					<div class="mb-3">
 						<label for="pwd">Password</label>
-						<input type="password" class="form-control" id="pwd" name="pwd" placeholder="Password">
+						<input type="password" class="form-control" id="pwd" name="pwd" placeholder="Password" required>
 					</div>
 				</div>
 				<div class="mb-3">
 					<label for="age">Age</label>
-					<input type="number" class="form-control" id="age" name="age">
+					<input type="number" class="form-control" id="age" name="age" required>
 				</div>
 				<div class="mb-3">
 					<p>Gender</p>
 					<div class="row">
 						<div class="col-6">
-							<input type="radio" id="male" name="gender" value="M">
+							<input type="radio" id="male" name="gender" value="M" required>
 							<label for="male">Male</label>
 						</div>
 						<div class="col-6">
-							<input type="radio" id="female" name="gender" value="F">
+							<input type="radio" id="female" name="gender" value="F" required>
 							<label for="female">Female</label>
 						</div>
 					</div>
 				</div>
 				<div class="mb-3">
 					<label for="placeOrigin">Place of Origin</label>
-					<input type="placeOrigin" class="form-control" id="origin" name="origin">
+					<input type="placeOrigin" class="form-control" id="origin" name="origin" required>
 				</div>
 				<button type="submit" name="submitU" class="btn btn-primary">Register</button>
 				</form>
@@ -81,29 +81,29 @@
 				<div class="form-row">
 					<div class="mb-3">
 						<label for="hName">Hotel Name</label>
-						<input type="text" class="form-control" id="hName" name="hName" placeholder="Alila Hotel">
+						<input type="text" class="form-control" id="hName" name="hName" placeholder="Alila Hotel" required>
 					</div>
 					<div class="mb-3">
 						<label for="email">Email</label>
-						<input type="email" class="form-control" id="hEmail" name="hEmail" placeholder="Alila@gmail.com">
+						<input type="email" class="form-control" id="hEmail" name="hEmail" placeholder="Alila@gmail.com" required>
 					</div>
 					<div class="mb-3">
 						<label for="pwd">Password</label>
-						<input type="password" class="form-control" id="hPwd" name="hPwd" placeholder="Password">
+						<input type="password" class="form-control" id="hPwd" name="hPwd" placeholder="Password" required>
 					</div>
 				</div>
 				<div class="mb-3">
 					<label for="add">Address</label>
-					<input type="text" class="form-control" id="hAdd" name="hAdd" placeholder="4, Jalan Tun Dr Ismail...">
+					<input type="text" class="form-control" id="hAdd" name="hAdd" placeholder="4, Jalan Tun Dr Ismail..." required>
 				</div>
 				<div class="form-floating">
-					<textarea class="form-control" id="hDesc" name="hDesc" style="height: 100px"></textarea>
+					<textarea class="form-control" id="hDesc" name="hDesc" style="height: 100px; resize: none;" required></textarea>
 					<label for="desc">Description</label>
 					<div id="descHelp" class="form-text">Share a little on your hotel, make it interesting!</div>
 				</div>
 				<div class="input-group mb-3 py-3">
 					<label class="input-group-text" for="fileUpload">Upload an image of your hotel</label>
-					<input type="file" name="fileUpload" id="fileUpload" class="form-control">
+					<input type="file" name="fileUpload" id="fileUpload" class="form-control" required>
 				</div>
 				<button type="submit" name="submitH" class="btn btn-primary">Register</button>
 				</form>

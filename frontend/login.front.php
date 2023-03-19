@@ -33,12 +33,12 @@
 								<label class="form-label" for="accType" name="accType">Select Account Type</label>
 
 								<div class="form-outline mb-2 py-5" style="width: 90%;">
-									<input type="email" name="email" id="email" class="form-control" />
+									<input type="email" name="email" id="email" class="form-control" required/>
 									<label class="form-label" for="email" name="email">Email address</label>
 								</div>
 
 								<div class="form-outline mb-2" style="width: 90%;">
-									<input type="password" name="pwd" id="pwd" class="form-control"/>
+									<input type="password" name="pwd" id="pwd" class="form-control" required/>
 									<label class="form-label" for="pwd" name="pwd">Password</label>
 								</div>
 
