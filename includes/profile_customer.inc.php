@@ -40,11 +40,4 @@
         "<script>alert('Changed Successfully'); 
         window.location.href='../frontend/profile_customer.front.php'</script>";
     }
-
-    if ($cust->showGender($custId) == 'M') {
-        $displayGender = "Male";
-
-    } else if ($cust->showGender($custId) == 'F') {
-        $displayGender = "Female";
-    }
 ?>

@@ -74,26 +74,27 @@
                 </form>
             </div>
 
-    <div id="payment-details" style="display: none;">
-        <div class="section">
-            <h1>Payment Details</h1>
-            <form id="pay-now" method="POST" action="../includes/payment.inc.php">
-                <label for="card-number">Card Number:</label><br>
-                <input type="text" id="card-number"><br>
-                <label for="expiry-date">Expiry Date:</label><br>
-                <input type="text" id="expiry-date"><br>
-                <label for="cvv">CVV:</label><br>
-                <input type="text" id="cvv"><br>
+        <div id="payment-details" style="display: none;">
+            <div class="section">
+                <h1>Payment Details</h1>
+                <form id="pay-now" method="POST" action="../includes/payment.inc.php">
+                    <label for="card-number">Card Number:</label><br>
+                    <input type="text" id="card-number"><br>
+                    <label for="expiry-date">Expiry Date:</label><br>
+                    <input type="text" id="expiry-date"><br>
+                    <label for="cvv">CVV:</label><br>
+                    <input type="text" id="cvv"><br>
 
-                <button type="submit" id="submit" name="submit" value="pay-now">Pay Now</button>
+                    <button type="submit" id="submit" name="submit" value="pay-now">Pay Now</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="continue-button" style="display: none;">
+            <form id="pay-later" method="POST" action="../includes/payment.inc.php">
+                <button type="submit" name="submit" id="submit" value="pay-later">Continue</button>
             </form>
         </div>
-    </div>
-
-    <div id="continue-button" style="display: none;">
-        <form id="pay-later" method="POST" action="../includes/payment.inc.php">
-            <button type="submit" name="submit" id="submit" value="pay-later">Continue</button>
-        </form>
     </div>
 
     <div style="padding-bottom: 40px;"></div>

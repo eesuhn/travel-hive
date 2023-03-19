@@ -37,7 +37,7 @@
 
             $stmt = $this->connect()->query($sql);
             if ($stmt->rowCount() > 0) {
-                echo '<div class="title"><h1>Our Available Hotels</h1></div>';
+                echo '<div class="title"><h1>Available Hotels</h1></div>';
 
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     echo '
@@ -195,7 +195,7 @@
                             <h5 class="card-title">'.$row["packageName"].', '.$row["hotelName"].'</h5>
                             <p class="card-text">'.$row["hotelAdd"].'</p>
                             <p class="card-text"><small>Check-in Date: '.$row["checkInDate"].'<br>Check-out Date: '.$row["checkOutDate"].'</small></p>
-                            <a class="btn btn-primary btn-sm" href="../includes/actionReservation.inc.php?action=delete&resId='.$row["resId"].'" role="button">Cancel Reservation</a>
+                            <a class="btn btn-primary btn-sm" href="../includes/cancel_reservation.inc.php?id='.$row["resId"].'" role="button">Cancel Reservation</a>
                         </div>
                     </div>
                 </div>

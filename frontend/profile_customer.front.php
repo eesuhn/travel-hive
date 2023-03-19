@@ -35,7 +35,7 @@
 				</small></p>
 
 				<p class="card-text"><small class="text-muted">Gender: 
-					<?= $displayGender; ?>
+					<?= $cust->showGender($custId); ?>
 				</small></p>
 
 				<p class="card-text"><small class="text-muted">Place of origin: 
