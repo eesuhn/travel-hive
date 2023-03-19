@@ -1,65 +1,76 @@
 <?php
-include '../includes/navbar.php';
-include '../includes/profileH.inc.php';
-$hotelUid = $_SESSION["hotelUid"];
+    include '../includes/navbar.php';
+    include '../includes/profileH.inc.php';
+
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    $hotelUid = $_SESSION["hotelUid"];
+    $hotel = new Hotel();
 ?>
 
-<div class="col d-flex justify-content-center">
-    <div class="card mb-3" style="width: 700px; margin-top:20px">
-        <div class="card-body">
-            <h5 class="card-title">Welcome back,
-                <?php
-                $hotel = new Hotel();
-                echo $hotel->showName($hotelUid);
-                ?>
-            </h5>
+<html>
 
-            <center>
+    <div class="col d-flex justify-content-center">
+        <div class="card mb-3" style="width: 700px; margin-top:20px">
+            <div class="card-body">
+                <h5 class="card-title">Welcome back,
+                    <?php
+                        echo $hotel->showName($hotelUid);
+                    ?>
+                </h5>
+
+                <center>
                 <div class="card mb-3" style="width: 500px; margin-top:10px">
                     <img class="card-img-top" src="<?= $hotel->showImage($hotelUid); ?>" alt="Card image cap" />
                 </div>
-            </center>
+                </center>
 
-            <p class="card-text"><small class="text-muted">
-                    Name: <?= $hotel->showName($hotelUid); ?>
+                <p class="card-text"><small class="text-muted">Name: 
+                    <?= $hotel->showName($hotelUid); ?>
                 </small></p>
-            <p class="card-text"><small class="text-muted">
-                    Email: <?= $hotel->showEmail($hotelUid); ?>
+
+                <p class="card-text"><small class="text-muted">Email: 
+                    <?= $hotel->showEmail($hotelUid); ?>
                 </small></p>
-            <p class="card-text"><small class="text-muted">
-                    Password: ********
+
+                <p class="card-text"><small class="text-muted">Password: ********
                 </small></p>
-            <p class="card-text"><small class="text-muted">
-                    Address: <?= $hotel->showAdd($hotelUid); ?>
+
+                <p class="card-text"><small class="text-muted">Address: 
+                    <?= $hotel->showAdd($hotelUid); ?>
                 </small></p>
-            <p class="card-text"><small class="text-muted">
-                    Description: <?= $hotel->showDesc($hotelUid); ?>
+
+                <p class="card-text"><small class="text-muted">Description: 
+                    <?= $hotel->showDesc($hotelUid); ?>
                 </small></p>
-        </div>
-    </div>
-</div>
-<div class="row px-2 py-2">
-    <div class="col-sm-12 px-3 py-3">
-        <div class="card bg-light border-light text-center">
-            <h5 class="card-header">Update Profile</h5>
-            <div class="card-body">
-                <p class="card-text">Update or make changes to your profile</p>
-                <a href="#updateProfile" data-bs-toggle="modal" data-target="#updateProfile" class="btn btn-primary">Update Profile</a>
             </div>
         </div>
     </div>
-</div>
 
-<div class="modal fade" id="updateProfile" tabindex="-1" role="dialog" aria-labelledby="profileTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="profileTitle">Update Profile</h5>
+    <div class="row px-2 py-2">
+        <div class="col-sm-12 px-3 py-3">
+            <div class="card bg-light border-light text-center">
+                <h5 class="card-header">Update Profile</h5>
+                <div class="card-body">
+                    <p class="card-text">Update or make changes to your profile</p>
+                    <a href="#updateProfile" data-bs-toggle="modal" data-target="#updateProfile" class="btn btn-primary">Update Profile</a>
+                </div>
             </div>
-            <div class="modal-body">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-lg-12">
-                        <form id="update_hotel" method="POST" action="../includes/profileH.inc.php" enctype="multipart/form-data">
+        </div>
+    </div>
+
+    <div class="modal fade" id="updateProfile" tabindex="-1" role="dialog" aria-labelledby="profileTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileTitle">Update Profile</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-12">
+                            <form id="update_hotel" method="POST" action="../includes/profileH.inc.php" enctype="multipart/form-data">
                             <div class="form-row">
                                 <div class="mb-3">
                                     <label for="name">Name</label>
@@ -87,11 +98,12 @@ $hotelUid = $_SESSION["hotelUid"];
                                 </div>
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button class="btn btn-primary" name="submit" id="submit">Save changes</button>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-</div>
+
+</html>
