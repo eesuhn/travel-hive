@@ -42,7 +42,7 @@
                 <p class="card-text"><small class="text-muted">
                     <?= $packages->showDesc($id); ?>
                 </small></p>
-                <div class="btn-group mr-1">
+                <div class="btn-group mr-1" style="margin-top: -16px;">
                     <a href="#updatePackage" data-bs-toggle="modal" data-bs-target="#updatePackage<?= $id ?>" class="btn btn-primary btn-sm">Update</a>
                 </div>
                 <div class="btn-group mr-1">
@@ -132,10 +132,11 @@
                                     </select>
                                     <input type="hidden" name="packageId" value="<?= $id ?>">
                                 </form>
-                            </div>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button class="btn btn-primary" name="deleteR" id="deleteR">Delete</button>
+                                </div>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button class="btn btn-primary" name="deleteR" id="deleteR">Delete</button>
                             </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -175,6 +176,8 @@
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button class="btn btn-primary" name="submit" id="submit">Save changes</button>
                         </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -220,6 +223,7 @@
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button class="btn btn-primary" name="submitA" id="submitA">Save changes</button>
                             </form>
+                            </div>
                         </div>
                     </div>
                 </div>

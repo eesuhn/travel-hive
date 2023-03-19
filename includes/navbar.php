@@ -64,6 +64,7 @@
 			</a>
 			<div class="navbar">
 				<div class="navbar-nav">
+					<a class="nav-item nav-link" href="../index/index.php">Home</a>
 					<a class="nav-item nav-link" href="../frontend/dashboard_hotel.front.php">Dashboard</a>
 					<a class="nav-item nav-link" href="../includes/logout.inc.php">Logout</a>
 				</div>
