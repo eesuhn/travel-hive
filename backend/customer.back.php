@@ -10,8 +10,7 @@
         public function __construct() {
             parent::__construct();
             $this->name = "";
-            $this->email = "";
-            $this->pwd = "";
+            parent::__construct();
             $this->age = "";
             $this->origin = "";
             $this->gender = "";
