@@ -15,7 +15,7 @@
         }
 
         public function loginCustomer() {
-            $pwd = md5($this->pwd);
+            $pwd = $this->pwd;
 
             $sql = "SELECT * FROM `customer` WHERE `custEmail` = :email AND `custPwd` = :pwd";
             $stmt = $this->connect()->prepare($sql);
@@ -43,7 +43,7 @@
         }
 
         public function loginHotel() {
-            $pwd = md5($this->pwd);
+            $pwd = $this->pwd;
 
             $sql = "SELECT * FROM `hotel` WHERE `hotelEmail` = :email AND `hotelPwd` = :pwd";
             $stmt = $this->connect()->prepare($sql);

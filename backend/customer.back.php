@@ -19,7 +19,7 @@
         public function setCustDetails($name, $email, $pwd, $age, $origin, $gender) {
             $this->name = $name;
             $this->email = $email;
-            $this->pwd = md5($pwd);
+            $this->pwd = $pwd;
             $this->age = $age;
             $this->origin = $origin;
             $this->gender = $gender;
@@ -62,7 +62,7 @@
         
 
         public function updateCustDetails($uid, $newName, $newEmail, $newPwd, $newAge, $newOrigin, $newGender) {
-            $newPwd = md5($newPwd);
+            $newPwd = $newPwd;
 
             $sql = 
             "UPDATE customer SET custName = '$newName', custEmail = '$newEmail', custPwd = '$newPwd', 
