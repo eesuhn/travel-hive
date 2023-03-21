@@ -1,4 +1,13 @@
 ## Travel Hive
+An **online hotel booking system** that offers a professional and seamless experience for tourists.
+
+- **Customer** user to book hotels based on: 
+  - Package availability 
+  - Location 
+- **Hotel** user to manage: 
+  - Reservations 
+  - Packages and corresponding rooms 
+ ---
 
 <img src="https://user-images.githubusercontent.com/102596628/226254835-1fbf3033-1cd9-48ce-8939-ba6e0c947fb5.png" alt="Screenshot1" width="660" />
 
