@@ -15,8 +15,8 @@ An **online hotel booking system** that offers a professional and seamless exper
 
 --- 
 ### Setting up
-1. Importing the database from `db.sql`
-1. Creating a file named `connection.back.php` in `/backend` folder with the code below: 
+1. Create database named `travelhive`, and import `db.sql`
+2. Create a file named `connection.back.php` in `/backend` folder with the code below: 
 
 ```php
 <?php
