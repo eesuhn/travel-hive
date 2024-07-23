@@ -1,6 +1,3 @@
-# database connection file
-backend/connection.back.php
-
 # ignore all files in the uploads folder
 uploads/*
 !uploads/.gitkeep
